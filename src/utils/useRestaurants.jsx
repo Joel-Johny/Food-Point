@@ -4,6 +4,7 @@ import React,{useEffect} from "react"
 const useRestaurant=(resId)=>{
 
     const [rMenu,setRMenu]=React.useState([])
+    const [filteredMenu,setfilteredMenu]=React.useState([])
     const [rDetails,setRDetails]=React.useState([])
     useEffect(()=>{
         fetchMenu()
@@ -14,10 +15,11 @@ const useRestaurant=(resId)=>{
         const json=await data.json()
 
         setRMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
+        setfilteredMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
         setRDetails(json.data.cards[0].card.card.info)
 
     }
-    return [rMenu,rDetails]
+    return [rMenu,rDetails,filteredMenu,setfilteredMenu]
 
 }
 

@@ -40,10 +40,12 @@ body{
     flex-wrap: wrap;
     height: 100%;
     padding: 3rem;
-    justify-content: space-between;
+    justify-content: center;
     gap: 2rem;
     margin-left: 8rem;
     margin-right: 8rem;
+    text-align: center;
+    margin: auto;
 
 }
 .card{
@@ -77,12 +79,11 @@ body{
     margin-top: 4.67rem;
 }
 
-/*----------------------------- Restaurant ----------------------------- */
+/*----------------------------- Restaurant Detail and Menu ----------------------------- */
 .restaurant{
     display:flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin-top: 1.75rem;
 }
 
@@ -94,15 +95,66 @@ body{
     background-color:rgb(71, 68, 68);
     width: 100%;
     color: white;
+
 }
 
 .r-image{
     height:200px;
+    width: 280px;
 }
 .label{
     display:flex;
     gap:2rem;
     align-items: center;
+}
+
+.rest-menu{
+    margin-top:2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.rest-item{
+    width: 33%;
+    display: flex;
+    gap:1rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid grey;
+    padding-bottom: 1rem;
+
+}
+
+.item-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;   
+
+}
+
+.item-img{
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+
+}
+.recommend{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.menu-search{
+    margin-top: 0.5rem;
+    width: 8%;
+    text-indent: 0.15rem;
+    margin: auto;
 }
 
 .fetchError{

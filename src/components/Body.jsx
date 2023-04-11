@@ -26,13 +26,15 @@ export default function Body(){
     function filter(search){
         
 
-        const filtered=allRestaurants.filter((restaurant)=>{
+        let filtered=allRestaurants.filter((restaurant,index)=>{
         const string_copy=restaurant.info.name.toLowerCase()
         const search_copy=search.toLowerCase()
             return string_copy.includes(search_copy)
             
             
         })
+       
+
 
         return filtered
     }

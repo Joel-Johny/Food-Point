@@ -27,11 +27,12 @@ const useFetchData=()=>{
 
             const data= await fetch(swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude)
 
-
+            
             const json=await data.json()
             const length=json.data.success.cards.length
             setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
             setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            console.log(menuDetails,rDetails)
 
             //here batch state update occurs and component will get updated once not twice
           }
