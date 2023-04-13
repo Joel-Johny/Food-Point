@@ -9,6 +9,7 @@ import Error from './components/Error'
 import Contact from './components/Contact'
 import RestaurantMenu from './components/RestaurantMenu'
 import Profile from './components/Profile'
+import AccordianDemo from './components/AccordianDemo'
 
 const AppLayout=()=>{
 
@@ -50,6 +51,10 @@ const appRouter=createBrowserRouter([
       {
         path:"contact",
         element:<Contact/>
+      },
+      {
+        path:"accordian",
+        element:<AccordianDemo/>
       },
     
       {
