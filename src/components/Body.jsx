@@ -12,7 +12,6 @@ export default function Body(){
 
     const [filteredRestaurants,setFilteredRestaurants,allRestaurants,setAllRestaurants]=useFetchData()  //SEE THIS VERY IMP
     
-
     function searchUpdate(e){
         setSearch((old)=>{ return e.target.value;})
 
@@ -46,6 +45,13 @@ export default function Body(){
                 <h1>You are not connected to the internet</h1>
             </div>
         )
+    if(allRestaurants==undefined){
+        return(
+            <div>
+                <h1 style={{textAlign:"center",margin:"auto",marginTop:"5%"}}>No restaurants at the moment please come back after sometime!</h1>
+            </div>
+        )
+    }
 
     return(
         (allRestaurants.length===0)

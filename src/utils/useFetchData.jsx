@@ -5,6 +5,8 @@ const useFetchData=()=>{
     const [filteredRestaurants,setFilteredRestaurants]=React.useState([])
     const [allRestaurants,setAllRestaurants]=React.useState([])
     useEffect(()=>{
+
+
         getData()
 
     },[])
@@ -22,17 +24,17 @@ const useFetchData=()=>{
             //if user allows to track location 
             const crd = pos.coords;
           
-            console.log(`Latitude : ${crd.latitude}`);
-            console.log(`Longitude: ${crd.longitude}`);
+            //console.log(`Latitude : ${crd.latitude}`);
+            //console.log(`Longitude: ${crd.longitude}`);
 
             const data= await fetch(swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude)
 
             
             const json=await data.json()
+
             const length=json.data.success.cards.length
             setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
             setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
-            console.log(menuDetails,rDetails)
 
             //here batch state update occurs and component will get updated once not twice
           }
@@ -41,9 +43,10 @@ const useFetchData=()=>{
 
             //if user denies to track location then default lat and long is set(Bangalore Nagawara) 
 
-            console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
+            //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
             const data= await fetch(swiggyUrl)
             const json=await data.json()
+
             const length=json.data.success.cards.length
             setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
             setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)

@@ -49,7 +49,7 @@ const Collapse=({title,description,setVisible,visibility,id})=>{
    }
    return(
        <div onClick={toggleView} className="accord">
-            {console.log(visibility)}
+            {/* {console.log(visibility)} */}
            {visibility?<h1>{"↓"+title}</h1>:<h1>{"→"+title}</h1>}
            {visibility && <p>{description}</p>}
        </div>

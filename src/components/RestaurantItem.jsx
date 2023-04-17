@@ -10,7 +10,7 @@ const RestaurantItem=({details})=>{
             <div className="item-info">
                 {isVeg?<img src={veg} height={'25px'} width={'25px'}/>:<img src={nonveg}  height={'25px'} width={'25px'}/>}
                 <h2>{name}</h2>
-                <h3>{price?price/100:defaultPrice/100} ₹</h3>
+                <h3>₹{price?price/100:defaultPrice/100} </h3>
                 <p>{description}</p>
             </div>
 
