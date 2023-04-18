@@ -37,7 +37,7 @@ const RestaurantMenu=()=>{
     const dishes=filteredMenu.map((menuItem,index)=>{
 
         return(
-            <RestaurantItem details={menuItem.card.info} key={index}/>
+            <RestaurantItem details={menuItem.card.info} rname={rDetails.name} key={index}/>
         )
     })
 

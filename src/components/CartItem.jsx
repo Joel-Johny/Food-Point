@@ -1,6 +1,6 @@
 import React from "react";
 import { url } from "../constant";
-import { addItem,incrementItem,decrementItem} from "../utils/cartSlice";
+import { incrementItem,decrementItem} from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 const RestaurantItem=({details,rname})=>{
@@ -16,12 +16,7 @@ const RestaurantItem=({details,rname})=>{
             dish_count= object.count
     })
     const dispatch=useDispatch()
-    const handleAddItem =()=>{ 
-        dispatch(addItem({
-            ...details,
-            count:1
-        }))
-    }
+
     const increment =()=>{
         dispatch(incrementItem({
             name:name
@@ -43,14 +38,12 @@ const RestaurantItem=({details,rname})=>{
                 <h2>{name}</h2>
                 <h3>₹{price?price/100:defaultPrice/100} </h3>
                 <p>{description}</p>
-                
-                <div className="add-dish" >{(dish_count==0)
-                ?<div onClick={handleAddItem} style={{cursor:'pointer'}}>Add</div>
-                    :<div className="inc-dec">
+                <div className="add-dish" >
+                    <div className="inc-dec">
                         <img className="symbol" onClick={decrement} src="https://cdn-icons-png.flaticon.com/512/929/929430.png"/>
                         {dish_count}
                         <img className="symbol" onClick={increment} src="https://cdn-icons-png.flaticon.com/512/7131/7131300.png"/>
-                    </div>}
+                    </div>
                 </div>
             </div>
 

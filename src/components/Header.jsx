@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 
 export default function Header(){
 
-    const cartItems=useSelector((store)=>{
-        return store.cart.items
+    const cartCount=useSelector((store)=>{
+        return store.cart.total
     })
     return(
         <div className="header">
@@ -23,7 +23,7 @@ export default function Header(){
                     <li><Link to="/about">About</Link></li>
                     <li><Link to="/accordian">Accordian</Link></li>
                     <li><Link to="/cartContext"><div style={{display:`flex`,gap:`0.4rem`,alignItems:'center',justifyContent:'center'}}>Cart <div style={{border:'1px solid black',height:'20px',width:'35px',display:`flex`,alignItems:'center',justifyContent:'center'}}>100</div></div></Link></li>
-                    <li><Link to="/cartRedux"><div style={{display:`flex`,gap:`0.4rem`,alignItems:'center',justifyContent:'center'}}>Cart <div style={{border:'1px solid black',height:'20px',width:'35px',display:`flex`,alignItems:'center',justifyContent:'center'}}>{cartItems.length}</div></div></Link></li>
+                    <li><Link to="/cartRedux"><div style={{display:`flex`,gap:`0.4rem`,alignItems:'center',justifyContent:'center'}}>Cart <div style={{border:'1px solid black',height:'20px',width:'35px',display:`flex`,alignItems:'center',justifyContent:'center'}}>{cartCount}</div></div></Link></li>
                 </ul>
             </div>
         </div>
