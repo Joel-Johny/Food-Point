@@ -26,8 +26,9 @@ const useFetchData=()=>{
           
             //console.log(`Latitude : ${crd.latitude}`);
             //console.log(`Longitude: ${crd.longitude}`);
-
-            const data= await fetch(swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude,{mode:`no-cors`})
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const url=proxyUrl+swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude
+            const data= await fetch(url)
 
             
             const json=await data.json()
@@ -44,7 +45,9 @@ const useFetchData=()=>{
             //if user denies to track location then default lat and long is set(Bangalore Nagawara) 
 
             //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
-            const data= await fetch(swiggyUrl,{mode:`no-cors`})
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const url=proxyUrl+swiggyUrl
+            const data= await fetch(url)
             const json=await data.json()
 
             const length=json.data.success.cards.length
