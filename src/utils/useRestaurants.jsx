@@ -15,7 +15,9 @@ const useRestaurant=(resId)=>{
     },[param.id])
 
     const fetchMenu=async ()=>{
-        const data=await fetch(swiggyRestMenu+resId,{mode:`no-cors`})
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const url=proxyUrl+swiggyRestMenu+resId
+        const data=await fetch(url)
         const json=await data.json()
         // console.log("FM NOW")
         setRMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
