@@ -3,6 +3,7 @@ import { url } from "../constant";
 import { incrementItem,decrementItem} from "../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+
 const RestaurantItem=({details,rname})=>{
     const {name,isVeg,price,defaultPrice,imageId,description}=details
     const nonveg="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png"
@@ -52,6 +53,7 @@ const RestaurantItem=({details,rname})=>{
             </div>
 
 
+        
         </div>
 
     )

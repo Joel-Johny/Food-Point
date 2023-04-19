@@ -41,7 +41,7 @@ body{
     height: 100%;
     padding: 3rem;
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
     margin-left: 8rem;
     margin-right: 8rem;
     text-align: center;
@@ -50,14 +50,17 @@ body{
 }
 .card{
     width: 240px;
+    padding: 0.5rem;
     height: 310px;
-    border: 1px solid red;
-    padding: 0.6rem;
-    box-shadow: 0 4px 8px 0 rgba(224, 117, 117, 0.2), 0 6px 20px 0 rgba(121, 73, 73, 0.19);
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     border-radius: 20px;
     line-height: 2rem;
+    border: 1px solid grey;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(121, 73, 73, 0.19);
 }
 
 .rest-img{
@@ -117,7 +120,7 @@ body{
 }
 
 .rest-item{
-    width: 33%;
+    width: 40%;
     display: flex;
     gap:1rem;
     justify-content: center;
@@ -146,15 +149,15 @@ body{
 }
 .add-dish{
     width: 85px;
-    height: 25px;
-    background-color:rgba(250, 216, 89);;
+    height: 27px;
+    background-color:rgb(222, 211, 148);;
     border: none;
     margin-top: 0.5rem;
     font-weight:600;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 .inc-dec{
     display: flex;
@@ -244,6 +247,98 @@ body{
     justify-content: center;
     gap: 0.75rem;
 
+}
+
+/*----------------------------- CartRedux ----------------------------- */
+
+.delete,.conflict{
+    position: fixed;
+    bottom: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:1.75rem;
+    min-width:30%;
+    padding: 1.5rem;
+    margin: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 9999;
+    background-color: rgb(255, 255, 255);
+}
+.decision{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.see-rest{
+    height: 20px;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(252,129,24);
+    padding: 1rem;
+    font-weight: bolder;
+    color: white;
+    font-weight:600;
+    margin: 1rem;
+    padding: 1.5rem;
+}
+.see-rest:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    cursor:pointer;
+    background-color: rgb(252, 24, 24);
+
+}
+
+.yes{
+    border:2px solid red;
+    height: 20px;
+    min-width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-weight: bolder
+
+    
+}
+.yes:hover{
+    box-shadow: 0 4px 8px 0 rgba(255, 0, 0, 0.2), 0 4px 8px 0 rgba(255, 0, 0, 0.2);
+    background-color: red;
+    color: white;
+    cursor:pointer
+
+}
+.no{
+    border:2px solid green;
+    text-align: center;
+    min-width: 150px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    justify-content: center;
+    font-weight: bolder
+
+}
+.no:hover{
+    box-shadow: 0 4px 8px 0 rgba(43, 255, 0, 0.2), 0 4px 8px 0 rgba(43, 255, 0, 0.2);
+    background-color: green;
+    color: white;
+    cursor:pointer
+
+}
+.opacity{
+    opacity: 0.2;
 }
 /*----------------------------- Footer ----------------------------- */
 #footer {

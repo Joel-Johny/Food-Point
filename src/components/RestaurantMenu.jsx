@@ -4,13 +4,16 @@ import { useParams } from "react-router-dom"
 import MenuShimmer from "./MenuShimmer"
 import useRestaurants from "../utils/useRestaurants"
 import RestaurantItem from "./RestaurantItem"
-
+import RestConflict from "./RestConflict"
+import { useSelector } from "react-redux"
 
 const RestaurantMenu=()=>{
     const param=useParams()
     const [menuDetails,rDetails,filteredMenu,setfilteredMenu]=useRestaurants(param.id)
     const [searchTxt,setSearchTxt]=useState("")
-
+    const conflict=useSelector((store)=>{
+        return store.cart.conflict
+    })
     function searchDish(e){
         setSearchTxt(e.target.value)
         const result=filterMenu(e.target.value)
@@ -37,14 +40,14 @@ const RestaurantMenu=()=>{
     const dishes=filteredMenu.map((menuItem,index)=>{
 
         return(
-            <RestaurantItem details={menuItem.card.info} rname={rDetails.name} key={index}/>
+            <RestaurantItem details={menuItem.card.info} rname={rDetails.name} r_id={rDetails.id} key={index}/>
         )
     })
 
     return ( Object.keys(menuDetails).length === 0)
     ?<MenuShimmer />
     :(  <>
-        <div className="restaurant">
+        <div className={`restaurant ${conflict ? 'opacity' : ''}`}>
             
             <div className="rest-details">
                 <img src={url+rDetails.cloudinaryImageId} className="r-image"/>
@@ -72,6 +75,10 @@ const RestaurantMenu=()=>{
 
 
         </div>
+        <div className="rest-menu">
+        {conflict && <RestConflict rname={rDetails.name} r_id={rDetails.id}/>}
+        </div>
+
         </>
     )
 }

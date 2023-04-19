@@ -5,19 +5,30 @@ const cartSlice=createSlice({
 
     initialState:{
         items:[],//this is the cart item
-        total:0
+        total:0,
+        conflict:false,
+        rname:'',
+        r_id:0
     },
     reducers:{
 
         addItem:(state,action)=>{
             // let sum=0
-            state.items.push(action.payload)
-
+            if (state.items.length==0 || state.rname==action.payload.rname){
+                state.items.push(action.payload)
+                state.rname=action.payload.rname
+                state.r_id=action.payload.r_id
+                state.total=state.total+1
+                
+            }
             // state.items.map((object,index)=>{
             //     sum=sum+object.count
             // })
             // state.total=sum
-            state.total=state.total+1
+
+            else{
+                state.conflict=true
+            }
 
         },
         incrementItem:(state,action)=>{
@@ -42,7 +53,9 @@ const cartSlice=createSlice({
 
             state.total=state.total-1
         },
-        
+        conflictResolve:(state)=>{
+            state.conflict=false
+        },
         clearCart:((state)=>{
             state.items=[]
             state.total=0
@@ -52,4 +65,4 @@ const cartSlice=createSlice({
 })
 
 export default cartSlice.reducer
-export const {addItem,incrementItem,decrementItem,clearCart} =cartSlice.actions
+export const {addItem,incrementItem,decrementItem,clearCart,conflictResolve} =cartSlice.actions
