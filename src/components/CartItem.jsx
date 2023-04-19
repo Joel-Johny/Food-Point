@@ -41,9 +41,9 @@ const RestaurantItem=({details,rname})=>{
                 <p>{description}</p>
                 <div className="add-dish" >
                     <div className="inc-dec">
-                        <img className="symbol" onClick={decrement} src="https://cdn-icons-png.flaticon.com/512/929/929430.png"/>
+                        <img className="symbol" onClick={decrement} src="https://icon-library.com/images/minus-icon-png/minus-icon-png-14.jpg"/>
                         {dish_count}
-                        <img className="symbol" onClick={increment} src="https://cdn-icons-png.flaticon.com/512/7131/7131300.png"/>
+                        <img className="symbol" onClick={increment} src="https://cdn.pixabay.com/photo/2014/04/02/10/55/plus-304947_1280.png"/>
                     </div>
                 </div>
             </div>

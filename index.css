@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 *{
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +10,7 @@ body{
     overflow-x: hidden; /* Hide horizontal scrollbar */
     display: flex;
     flex-direction: column;
+    font-family:'Libre Baskerville', serif;;
 }
 /*----------------------------- Navbar ----------------------------- */
 
@@ -41,26 +43,38 @@ body{
     height: 100%;
     padding: 3rem;
     justify-content: center;
-    gap: 4rem;
-    margin-left: 8rem;
-    margin-right: 8rem;
+    gap: 3rem;
     text-align: center;
-    margin: auto;
+    margin-left:5rem ;
+    margin-right:5rem ;
 
 }
 .card{
     width: 240px;
     padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    line-height: 2rem;
+}
+.card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(121, 73, 73, 0.19);
+    border: 1.5px solid rgb(204, 135, 6);
+}
+.card-shimmer{
+    width: 240px;
+    padding: 0.6rem;
     height: 310px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-radius: 20px;
+    border-radius: 10px;
     line-height: 2rem;
     border: 1px solid grey;
 }
-.card:hover{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(121, 73, 73, 0.19);
+.rest-name{
+    font-size: 40;
 }
 
 .rest-img{
@@ -72,7 +86,6 @@ body{
 
 .search-container{
     margin-top: 2.5rem;
-    margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
@@ -157,20 +170,20 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 .inc-dec{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     width: 100%;
     height: 100%;
 
 }
 .symbol{
-    height: 16px;
-    width: 16px;
-    cursor:pointer
+    height: 14px;
+    width: 14px;
+    cursor:pointer;
 }
 .recommend{
     margin-bottom: 1.5rem;
@@ -269,7 +282,8 @@ body{
 .decision{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 2rem;
     width: 100%;
 }
 .empty{
@@ -338,7 +352,8 @@ body{
 
 }
 .opacity{
-    opacity: 0.2;
+    opacity: 0.3;
+    pointer-events: none;
 }
 /*----------------------------- Footer ----------------------------- */
 #footer {
