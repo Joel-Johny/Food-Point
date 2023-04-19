@@ -15,7 +15,7 @@ const useRestaurant=(resId)=>{
     },[param.id])
 
     const fetchMenu=async ()=>{
-        const data=await fetch(swiggyRestMenu+resId)
+        const data=await fetch(swiggyRestMenu+resId,{mode:`no-cors`})
         const json=await data.json()
         // console.log("FM NOW")
         setRMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
