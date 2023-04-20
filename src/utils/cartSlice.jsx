@@ -8,18 +8,19 @@ const cartSlice=createSlice({
         total:0,
         conflict:false,
         rname:'',
-        r_id:0
+        r_id:0,
+        totalBill:0
     },
     reducers:{
 
-        addItem:(state,action)=>{
+        addItem: (state,action)=>{
             // let sum=0
             if (state.items.length==0 || state.rname==action.payload.rname){
                 state.items.push(action.payload)
                 state.rname=action.payload.rname
                 state.r_id=action.payload.r_id
                 state.total=state.total+1
-                
+                cartSlice.caseReducers.updateBill(state)
             }
             // state.items.map((object,index)=>{
             //     sum=sum+object.count
@@ -35,6 +36,7 @@ const cartSlice=createSlice({
             state.items.map((object,index)=>{
                 if(object.name==action.payload.name){
                     object.count=object.count+1
+                    cartSlice.caseReducers.updateBill(state)
                 }
             })
 
@@ -45,9 +47,12 @@ const cartSlice=createSlice({
             state.items.map((object,index)=>{
                 if(object.name==action.payload.name){
                     object.count=object.count-1
+
                 if(object.count==0){
                     state.items.splice(index,1)
                     }
+                cartSlice.caseReducers.updateBill(state)
+
                 }
             })
 
@@ -59,10 +64,19 @@ const cartSlice=createSlice({
         clearCart:((state)=>{
             state.items=[]
             state.total=0
+        }),
+        updateBill:((state)=>{
+            let sum=0
+
+            state.items.map((object)=>{
+                sum=sum+object.price/100
+            })
+            state.totalBill=sum
+
         })
     }
 
 })
 
 export default cartSlice.reducer
-export const {addItem,incrementItem,decrementItem,clearCart,conflictResolve} =cartSlice.actions
+export const {addItem,incrementItem,decrementItem,clearCart,conflictResolve,updateBill} =cartSlice.actions

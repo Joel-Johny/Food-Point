@@ -3,11 +3,8 @@ import { useSelector } from "react-redux";
 import CartItem from "./CartItem";
 import DeleteCart from "./DeleteCart";
 import { useNavigate } from "react-router-dom";
-
-
 const CartRedux=()=>{
     const navigate=useNavigate()
-
 
     const deleteAll=()=>{
         setAlert(true) 
@@ -16,9 +13,13 @@ const CartRedux=()=>{
     const goHome=()=>{
         navigate(`/`)
     }
-    const [alert,setAlert]=React.useState(false)
 
-    const {items,total,rname}=useSelector((store)=>{
+    const goBack=()=>{
+        navigate(`/restaurant/`+r_id)
+    }
+    const [alert,setAlert]=React.useState(false)
+    let sum=0
+    const {items,total,rname,r_id,totalBill}=useSelector((store)=>{
         return store.cart
     })
 
@@ -27,6 +28,7 @@ const CartRedux=()=>{
             <CartItem details={item} key={index}/>
         )
     })
+
     return (
         <>
         <div className={alert ? 'opacity' : 'crContainer'}>
@@ -39,7 +41,13 @@ const CartRedux=()=>{
                     <>
                     <h2 className="recommend">Your Cart Items from {rname}</h2>
                     {allCartItems}
-                    <div className="yes" onClick={deleteAll}>Empty Cart?</div>
+                    <div className="bill-container">
+                        <big className="bill"> Your total bill amount is <strong> ₹{totalBill}</strong></big>
+                    </div>
+                    <div className="buttons">
+                        <div className="see-rest" onClick={deleteAll}>Empty Cart?</div>
+                        <div className="see-rest" onClick={goBack}>Go back to Restaurant</div>
+                    </div>
                     
 
                     </>
