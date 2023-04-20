@@ -8,7 +8,7 @@ const Basic=({title,description})=>{
     }
     return(
         <div onClick={toggleView} className="accord">
-            {visible?<h1>{"↓"+title}</h1>:<h1>{"→"+title}</h1>}
+            {visible?<em>{"↓"+title}</em>:<em>{"→"+title}</em>}
             {visible && <p>{description}</p>}
         </div>
     )
@@ -50,7 +50,7 @@ const Collapse=({title,description,setVisible,visibility,id})=>{
    return(
        <div onClick={toggleView} className="accord">
             {/* {console.log(visibility)} */}
-           {visibility?<h1>{"↓"+title}</h1>:<h1>{"→"+title}</h1>}
+           {visibility?<em>{"↓"+title}</em>:<em>{"→"+title}</em>}
            {visibility && <p>{description}</p>}
        </div>
    )
@@ -72,8 +72,8 @@ const AccordianDemo =()=>{
     return (
         <>
         <div className="basic">
-            <h1>This is Basic Accordian. </h1>
-            <h2>Here state is maintained by indivuidual Accordian Component</h2>
+            <h2>This is Basic Accordian. </h2>
+            <p>Here state is maintained by indivuidual Accordian Component</p>
             <Basic title={"Something basic 1"} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}/>
             <Basic title={"Something basic 2"} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}/>
             <Basic title={"Something basic 3"} description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}/>
@@ -111,8 +111,8 @@ const AccordianDemo =()=>{
 
         {/* 2nd way  */}
         <div className="collapse">
-            <h1>This is collapsile Accordian.Here only one menu can open at a time </h1>
-            <h2>Unlike "Basic" this implements concept of "Lifting State Up".Here state is maintained by parent component   </h2>
+            <h2>This is collapsile Accordian.Here only one menu can open at a time </h2>
+            <p>Unlike "Basic" this implements concept of "Lifting State Up".Here state is maintained by parent component   </p>
             <Collapse
              title={"Something basic 1"} 
              description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"}

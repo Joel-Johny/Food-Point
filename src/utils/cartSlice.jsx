@@ -69,7 +69,7 @@ const cartSlice=createSlice({
             let sum=0
 
             state.items.map((object)=>{
-                sum=sum+object.price/100
+                sum=sum+((object.price/100)*object.count)
             })
             state.totalBill=sum
 

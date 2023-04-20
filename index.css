@@ -4,6 +4,10 @@
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
 body{
     min-height: 100vh;
     width: 100vw;
@@ -319,8 +323,8 @@ body{
 .see-rest:hover{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     cursor:pointer;
-    background-color: rgb(159, 190, 64);
-
+    background-color: rgb(246, 186, 5);
+    color: black;
 }
 
 .yes{
