@@ -29,10 +29,10 @@ const useFetchData=()=>{
             // const proxyUrl=(`http://localhost:8080/`)
             
             const url=swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude
-            const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-            const headers = new Headers();
-            headers.append('Origin', corsAnywhereUrl);
-            const data= await fetch(corsAnywhereUrl + url, { headers })
+            const headers = new Headers({
+              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+            });
+            const data= await fetch(url, { headers })
             const json=await data.json()
             const length=json.data.success.cards.length
 
@@ -50,9 +50,10 @@ const useFetchData=()=>{
 
             //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
             const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-            const headers = new Headers();
-            headers.append('Origin', corsAnywhereUrl);
-            const data= await fetch(corsAnywhereUrl + swiggyUrl, { headers })
+            const headers = new Headers({
+              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+            });
+            const data= await fetch( swiggyUrl, { headers })
             const json=await data.json()
 
             const length=json.data.success.cards.length
