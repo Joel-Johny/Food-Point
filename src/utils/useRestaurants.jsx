@@ -17,11 +17,15 @@ const useRestaurant=(resId)=>{
     const fetchMenu=async ()=>{
         const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const url=proxyUrl+swiggyRestMenu+resId
+ 
+        
         const data=await fetch(url)
         const json=await data.json()
+        const length=json.data.cards.length-1
+        console.log(json.data)
         // console.log("FM NOW")
-        setRMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
-        setfilteredMenu(json.data.cards[3].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
+        setRMenu(json.data.cards[length].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
+        setfilteredMenu(json.data.cards[length].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards)
         setRDetails(json.data.cards[0].card.card.info)
 
     }

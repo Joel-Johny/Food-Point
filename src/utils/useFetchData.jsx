@@ -26,14 +26,18 @@ const useFetchData=()=>{
           
             //console.log(`Latitude : ${crd.latitude}`);
             //console.log(`Longitude: ${crd.longitude}`);
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const url=proxyUrl+swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude
-            const data= await fetch(url)
-
+            // const proxyUrl=(`http://localhost:8080/`)
             
+            const url=swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude
+            const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+            const headers = new Headers();
+            headers.append('Origin', corsAnywhereUrl);
+            const data= await fetch(corsAnywhereUrl + url, { headers })
             const json=await data.json()
-
             const length=json.data.success.cards.length
+
+
+
             setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
             setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
 
@@ -45,9 +49,10 @@ const useFetchData=()=>{
             //if user denies to track location then default lat and long is set(Bangalore Nagawara) 
 
             //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
-            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-            const url=proxyUrl+swiggyUrl
-            const data= await fetch(url)
+            const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
+            const headers = new Headers();
+            headers.append('Origin', corsAnywhereUrl);
+            const data= await fetch(corsAnywhereUrl + swiggyUrl, { headers })
             const json=await data.json()
 
             const length=json.data.success.cards.length
