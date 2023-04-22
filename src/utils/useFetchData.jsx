@@ -22,17 +22,16 @@ const useFetchData=()=>{
           async function success(pos) {
 
             //if user allows to track location 
-            const crd = pos.coords;
-          
+            const coordinates = {'latitude':pos.coords.latitude,'longitude':pos.coords.longitude};            
             //console.log(`Latitude : ${crd.latitude}`);
             //console.log(`Longitude: ${crd.longitude}`);
             // const proxyUrl=(`http://localhost:8080/`)
-            
-            const url=swiggyUrl.slice(0,50)+crd.latitude+swiggyUrl.slice(57,62)+crd.longitude
-            const headers = new Headers({
-              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-            });
-            const data= await fetch(url, { headers })
+            const options = {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(coordinates)
+            };
+            const data= await fetch(`/api/rlist1`, options)
             const json=await data.json()
             const length=json.data.success.cards.length
 
@@ -49,11 +48,8 @@ const useFetchData=()=>{
             //if user denies to track location then default lat and long is set(Bangalore Nagawara) 
 
             //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
-            const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
-            const headers = new Headers({
-              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
-            });
-            const data= await fetch( swiggyUrl, { headers })
+
+            const data= await fetch(`/api/rlist2`)
             const json=await data.json()
 
             const length=json.data.success.cards.length
