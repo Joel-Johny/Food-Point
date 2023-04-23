@@ -12,11 +12,29 @@ const PORT = 1234;
 // either this or make changes in vite config either can work
 app.use(bodyParser.json());
 
+//fetch menu items from the restaurant
+app.post(`/api/menu`,async (req,res)=>{
+  let {lat,long}=req.body[0]
+
+  if(lat==null||long==null){
+    lat=`1`
+    long=`1`
+  }
+  const id=req.body[1]
+  const swiggyRestMenu=`https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${lat}&lng=${long}&restaurantId=${id}`
+  const headers = new Headers({
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',
+  });
+  fetch(swiggyRestMenu, { headers })
+    .then(response => response.json())
+    .then(data => res.send(data))
+    .catch(error => console.error(error));
+
+})
 
 //fetch list of all reastaurants in current location and send back response
 app.post(`/api/rlist1`,async (req,res)=>{
     
-  console.log("Express wass accessed and rlist1 was hit")
   const {latitude,longitude}=req.body
   
   const url = `https://www.swiggy.com/mapi/homepage/getCards?lat=${latitude}&lng=${longitude}`;
@@ -34,7 +52,6 @@ app.post(`/api/rlist1`,async (req,res)=>{
 
 app.get(`/api/rlist2`,async (req,res)=>{
     
-  console.log("Express wass accessed and rlist2 was hit")
   
   const url = 'https://www.swiggy.com/mapi/homepage/getCards?lat=13.0350041&lng=77.62354130000001';
   const headers = new Headers({
@@ -59,7 +76,7 @@ app.get('/api', (req, res) => {
 
   
 app.listen(PORT, () => {
-  console.log(`server running in port`);
+  console.log(`server running in port`,PORT);
 });
 
   // app.listen(`1234`,()=>{

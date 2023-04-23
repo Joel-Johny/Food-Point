@@ -7,10 +7,9 @@ const useRestaurant=(resId)=>{
     const [rMenu,setRMenu]=React.useState([])
     const [filteredMenu,setfilteredMenu]=React.useState([])
     const [rDetails,setRDetails]=React.useState([])
-    const location=useSelector((store)=>{
+    const coordinates=useSelector((store)=>{
         return store.cart.location
       })
-      console.log(location)
     const param=useParams()
 
     useEffect(()=>{
@@ -19,11 +18,13 @@ const useRestaurant=(resId)=>{
     },[param.id])
 
     const fetchMenu=async ()=>{
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-        const url=proxyUrl+swiggyRestMenu+resId
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify([coordinates,resId])
+          };
         
-        
-        const data=await fetch(url)
+        const data= await fetch(`/api/menu`, options)
         const json=await data.json()
         const length=json.data.cards.length-1
         // console.log("FM NOW")
