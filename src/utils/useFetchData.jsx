@@ -37,7 +37,7 @@ const useFetchData=()=>{
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(coordinates)
             };
-            const data= await fetch(`https://food-point-backend.onrender.com/api/rlist1`, options)
+            const data= await fetch(`/api/rlist1`, options)
             const json=await data.json()
             const length=json.data.success.cards.length
 
@@ -56,7 +56,7 @@ const useFetchData=()=>{
             const coordinates = {'latitude':18.5204,'longitude':73.8567};  
             dispatch(setLocation(coordinates)) 
 
-            const data= await fetch(`https://food-point-backend.onrender.com/api/rlist2`)
+            const data= await fetch(`/api/rlist2`)
             const json=await data.json()
 
             const length=json.data.success.cards.length

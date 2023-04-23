@@ -24,7 +24,7 @@ const useRestaurant=(resId)=>{
             body: JSON.stringify([coordinates,resId])
           };
         
-        const data= await fetch(`https://food-point-backend.onrender.com/api/menu`, options)
+        const data= await fetch(`/api/menu`, options)
         const json=await data.json()
         const length=json.data.cards.length-1
         // console.log("FM NOW")
