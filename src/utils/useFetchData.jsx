@@ -1,9 +1,12 @@
 import { swiggyUrl } from "../constant"
 import React,{useEffect} from "react"
+import { useSelector,useDispatch } from "react-redux"
+import { setLocation } from "./cartSlice"
 const useFetchData=()=>{
 
     const [filteredRestaurants,setFilteredRestaurants]=React.useState([])
     const [allRestaurants,setAllRestaurants]=React.useState([])
+    const dispatch=useDispatch()
     useEffect(()=>{
 
 
@@ -22,10 +25,13 @@ const useFetchData=()=>{
           async function success(pos) {
 
             //if user allows to track location 
-            const coordinates = {'latitude':pos.coords.latitude,'longitude':pos.coords.longitude};            
+            const coordinates = {'latitude':pos.coords.latitude,'longitude':pos.coords.longitude};  
+
+            dispatch(setLocation(coordinates))      
             //console.log(`Latitude : ${crd.latitude}`);
             //console.log(`Longitude: ${crd.longitude}`);
             // const proxyUrl=(`http://localhost:8080/`)
+
             const options = {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -42,12 +48,13 @@ const useFetchData=()=>{
 
             //here batch state update occurs and component will get updated once not twice
           }
-          
           async function error(err) {
 
             //if user denies to track location then default lat and long is set(Bangalore Nagawara) 
 
             //console.warn(`ERROR(${err.code}): ${err.message} setting default lat and long `);
+            const coordinates = {'latitude':18.5204,'longitude':73.8567};  
+            dispatch(setLocation(coordinates)) 
 
             const data= await fetch(`/api/rlist2`)
             const json=await data.json()
