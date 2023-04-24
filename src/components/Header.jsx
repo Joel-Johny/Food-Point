@@ -17,7 +17,16 @@ export default function Header(){
             </Link>
 
             <div >
-                <ul className="nav-items">
+                <ul className="pc-nav-items">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/contact">Contact Us</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/accordian">Accordian</Link></li>
+                    <li><Link to="/cartContext"><div style={{display:`flex`,gap:`0.4rem`,alignItems:'center',justifyContent:'center'}}>Cart <div style={{border:'1px solid black',height:'20px',width:'35px',display:`flex`,alignItems:'center',justifyContent:'center'}}>100</div></div></Link></li>
+                    <li><Link to="/cartRedux"><div style={{display:`flex`,gap:`0.4rem`,alignItems:'center',justifyContent:'center'}}>Cart <div style={{border:'1px solid black',height:'20px',width:'35px',display:`flex`,alignItems:'center',justifyContent:'center'}}>{cartCount}</div></div></Link></li>
+                </ul>
+
+                <ul className="mobile-nav-items">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/contact">Contact Us</Link></li>
                     <li><Link to="/about">About</Link></li>

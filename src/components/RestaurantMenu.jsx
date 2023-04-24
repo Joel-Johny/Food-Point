@@ -51,7 +51,7 @@ const RestaurantMenu=()=>{
             
             <div className="rest-details">
                 <img src={url+rDetails.cloudinaryImageId} className="r-image"/>
-                <div>
+                <div className="r-info">
                     <div className="label">
                         <h1>{rDetails.name}</h1>
                         {rDetails.avgRating && <h2>{rDetails.avgRating}⭐</h2>}

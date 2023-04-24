@@ -14,7 +14,7 @@ body{
     overflow-x: hidden; /* Hide horizontal scrollbar */
     display: flex;
     flex-direction: column;
-    font-family:'Libre Baskerville', serif;;
+    font-family:'Libre Baskerville', serif;
 }
 /*----------------------------- Navbar ----------------------------- */
 
@@ -28,12 +28,15 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.nav-items{
+.pc-nav-items{
     display: flex;
     justify-content: space-evenly;
     gap:1rem;
     list-style-type: none;
     font-size: medium;
+}
+.mobile-nav-items{
+    display: none;
 }
 .logo{
     display: flex;
@@ -45,12 +48,10 @@ body{
     display: flex;
     flex-wrap: wrap;
     height: 100%;
-    padding: 3rem;
+    padding: 2.5rem;
     justify-content: center;
-    gap: 3rem;
+    gap: 2.5rem;
     text-align: center;
-    margin-left:5rem ;
-    margin-right:5rem ;
 
 }
 .card{
@@ -137,14 +138,13 @@ body{
 }
 
 .rest-item{
-    width: 40%;
+    width: 50%;
     display: flex;
     gap:1rem;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1rem;
+    padding: 2rem;
     border-bottom: 1px solid grey;
-    padding-bottom: 1rem;
 
 }
 
@@ -197,7 +197,6 @@ body{
 }
 
 .menu-search{
-    width: 8%;
     text-indent: 0.15rem;
     margin: auto;
 }
@@ -373,4 +372,62 @@ body{
 #footer {
 
     margin-top: auto;
+}
+/* media query to handle menu items in restaurant */
+@media only screen and (max-width: 1400px){  
+    .rest-item{
+        width: 60%;
+    }  
+}
+@media only screen and (max-width: 1200px){  
+    .rest-item{
+        width: 80%;
+    }  
+}
+
+
+@media only screen and (max-width: 800px){  
+    .rest-item{
+        width: 95%;
+    }  
+
+}
+@media only screen and (max-width: 730px){  
+    .rest-item{
+        width: 100%;
+    }  
+
+    .r-image{
+        display: none;
+    }
+    .r-info{
+        padding: 1.5rem;
+    }
+    .label > h1{
+        font-size: x-large;
+    }
+    .label > h2{
+        font-size: large;
+    }
+
+    .r-info > h2{
+        font-size: large;
+    }
+
+}
+
+
+
+/* media query to handle header nav items */
+
+@media only screen and (max-width: 850px){  
+    .rest-item{
+        width: 95%;
+    }  
+    .pc-nav-items{
+        display: none;
+    }
+    .mobile-nav-items{
+        display: none;
+    }
 }
