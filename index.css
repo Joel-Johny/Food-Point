@@ -367,7 +367,7 @@ body{
 .opacity{
     opacity: 0.3;
     pointer-events: none;
-}
+}    
 /*----------------------------- Footer ----------------------------- */
 #footer {
 
@@ -400,6 +400,9 @@ body{
     .r-image{
         display: none;
     }
+    .img-shimmer{
+        display: none;
+    }
     .r-info{
         padding: 1.5rem;
     }
@@ -416,6 +419,14 @@ body{
 
 }
 
+@media only screen and (max-width: 500px){  
+  .item-img{
+    display: none;
+  }
+
+}
+
+
 
 
 /* media query to handle header nav items */
@@ -431,3 +442,4 @@ body{
         display: none;
     }
 }
+

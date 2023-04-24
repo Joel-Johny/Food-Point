@@ -6,7 +6,7 @@ const MenuShimmer=()=>{
     return(
             <>
             <div className="title-shimmer">
-                    <Skeleton height={200} width={317.4}/>
+                    <div className="img-shimmer"><Skeleton height={200} width={317.4}/></div>
                     <div className="label-shimmer">
                         <h2><Skeleton width={320} /></h2>
                         <h3><Skeleton width={180}/></h3>
