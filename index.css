@@ -46,6 +46,9 @@ body{
     align-items: center;
     gap:1rem
 }
+#title{
+    width: 50px;
+  }
 .header >div>ul>li:hover{
     box-shadow: 0 3px 0px 0 rgb(204, 135, 6)
 
@@ -125,7 +128,7 @@ body{
 }
 
 .search-container{
-    margin-top: 2.5rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     gap: 1.5rem;
@@ -148,7 +151,8 @@ body{
     justify-content: center;
     align-items: center;
     gap:1.5rem;
-    background-color:rgb(71, 68, 68);
+    padding: 0.2rem;
+    background-color: rgb(99, 99, 98);
     width: 100%;
     color: white;
 
@@ -165,7 +169,7 @@ body{
 }
 
 .rest-menu{
-    margin-top:2rem;
+    margin-top:1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -230,10 +234,16 @@ body{
     width: 100%;
     text-align: center;
 }
-
+input::placeholder {
+    text-align: center;
+  }
 .menu-search{
-    text-indent: 0.15rem;
     margin: auto;
+    height: 35px;
+    width: 400px;
+    border-radius: 8px;
+    text-align: center;
+
 }
 
 .fetchError{
@@ -255,8 +265,7 @@ body{
 /*----------------------------- menushimmer ----------------------------- */
 
 .title-shimmer{
-    background-color:rgb(71, 68, 68);
-    height:200px;
+    background-color: rgb(99, 99, 98);
     width:100%;
     display: flex;
     align-items: center;
@@ -264,6 +273,7 @@ body{
     margin-top: 1.75rem;
     margin-bottom: 3rem;
     justify-content: center;
+    padding: 0.2rem;
 }
 
 .label-shimmer{
@@ -463,6 +473,9 @@ body{
   .header >a >div>h1{
     font-size: large;
   }
+  #title{
+    width: 40px;
+  }
   .accord{width: 100%;}
 }
 
@@ -487,7 +500,7 @@ body{
         border-radius: 20px;
         height: 3px;
         width:24px;
-        background-color: rgb(100, 96, 87);
+        background-color: rgb(59, 58, 54);
     }
     .mobile-nav-items{
         display: flex;

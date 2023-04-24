@@ -32,7 +32,7 @@ const changeRestaurant=(id)=>{
         <p>Your cart contains dishes from <strong style={{cursor:'pointer'} } onClick={()=>{changeRestaurant(id)}}>{current_rname}</strong> .Do you want to discard the selection and add dishes from <strong>{rname} </strong></p>
         <div className="decision">
             <div className="no" onClick={handleNo}>NO</div>
-            <div className="yes" onClick={handleYes}>YES, START FRESH</div>
+            <div className="yes" onClick={handleYes}>YES</div>
         </div>
     </div>
   )

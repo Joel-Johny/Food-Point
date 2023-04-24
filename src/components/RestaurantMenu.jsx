@@ -10,10 +10,14 @@ import { useSelector } from "react-redux"
 const RestaurantMenu=()=>{
     const param=useParams()
     const [menuDetails,rDetails,filteredMenu,setfilteredMenu]=useRestaurants(param.id)
+    const [show,setShow]=React.useState(false)
     const [searchTxt,setSearchTxt]=useState("")
     const conflict=useSelector((store)=>{
         return store.cart.conflict
     })
+    function toggleShow(){
+        setShow(true)
+    }
     function searchDish(e){
         setSearchTxt(e.target.value)
         const result=filterMenu(e.target.value)
@@ -64,7 +68,13 @@ const RestaurantMenu=()=>{
             </div>
             <h1 className="recommend">{rDetails.name} Recommended Dishes </h1>
 
-            <input className="menu-search" onChange={searchDish} value={searchTxt} placeholder="SEARCH DISHES"/>
+            <div className="search-container">
+                {(show)
+                ?<input type="text" placeholder="SEARCH" className="menu-search" onChange={searchDish} value={searchTxt} />
+                :<img onClick={toggleShow} src="/search.png" style={{height:'70px',width:'70px', cursor:"pointer"}}/>
+            }
+            </div>
+
             <div className="rest-menu">
 
                 {filteredMenu.length>0?dishes:<h1>No dishes matched your query! Try again</h1>}

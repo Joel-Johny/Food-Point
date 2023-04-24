@@ -27,7 +27,7 @@ export default function Header(){
             <div className="header">
             <Link to="/">
             <div className="logo">
-                <img id="title" src="/logo.jpg" alt="some logo" style={{width:'50px'}} />
+                <img id="title" src="/logo.jpg" alt="some logo" />
                 <h1 htmlFor="title">Food-Point</h1>
             </div>
             </Link>
@@ -66,10 +66,10 @@ export default function Header(){
             </div>
             <div className="expand">
                 <ul className="expand-nav-items">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <li><Link to="/accordian">Accordian</Link></li>
+                    <li onClick={toggleToH}><Link to="/">Home</Link></li>
+                    <li onClick={toggleToH}><Link to="/contact">Contact Us</Link></li>
+                    <li onClick={toggleToH}><Link to="/about">About</Link></li>
+                    <li onClick={toggleToH}><Link to="/accordian">Accordian</Link></li>
                 </ul>
             </div>
 

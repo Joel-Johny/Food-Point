@@ -9,9 +9,11 @@ import useOnline from "../utils/useOnline"
 export default function Body(){
 
     const [search,setSearch]=React.useState("")
-
+    const [show,setShow]=React.useState(false)
     const [filteredRestaurants,setFilteredRestaurants,allRestaurants,setAllRestaurants]=useFetchData()  //SEE THIS VERY IMP
-    
+    function toggleShow(){
+        setShow(true)
+    }
     function searchUpdate(e){
         setSearch((old)=>{ return e.target.value;})
 
@@ -61,7 +63,10 @@ export default function Body(){
         :
         <main className="main">
             <div className="search-container">
-                <input type="text" placeholder="SEARCH" className="search-txt" value={search} onChange={searchUpdate}/>
+                {(show)
+                ?<input type="text" placeholder="SEARCH" className="menu-search" value={search} onChange={searchUpdate}/>
+                :<img onClick={toggleShow} src="/search.png" style={{height:'70px',width:'70px', cursor:"pointer"}}/>
+            }
             </div>
 
             <div className="restaurant-list">
