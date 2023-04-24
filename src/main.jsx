@@ -12,7 +12,6 @@ import AccordianDemo from './components/AccordianDemo'
 import { Provider } from 'react-redux'
 import store from './utils/store'
 import CartRedux from './components/CartRedux'
-import CartContext from './components/CartContext'
 
 const AppLayout=()=>{
 
@@ -66,11 +65,7 @@ const appRouter=createBrowserRouter([
         path:"cartRedux",
         element:<CartRedux/>
       },
-        {
-        path:"cartContext",
-        element:<CartContext/>
-      },
-    
+        
       {
         path:"/restaurant/:id",
         element:<RestaurantMenu/>
