@@ -25,24 +25,59 @@ body{
     height: 70px;
     justify-content: space-between;
     padding: 1.5rem;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+.section{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+}
 .pc-nav-items{
     display: flex;
     justify-content: space-evenly;
     gap:1rem;
     list-style-type: none;
     font-size: medium;
+    margin-right: 1rem;
 }
 .mobile-nav-items{
     display: none;
 }
 .logo{
     display: flex;
+    align-items: center;
     gap:1rem
 }
+.header >div>ul>li:hover{
+    box-shadow: 0 3px 0px 0 rgb(204, 135, 6)
 
+}
+
+.expand-nav-items{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    gap:0.25rem;
+    width: 100%;
+    text-align: center;
+
+}
+
+.expand-nav-items li{
+    width: 100%;
+    padding: 1rem;
+}
+.expand-nav-items li:hover{
+    background-color: rgb(99, 99, 98);
+    color: white;
+}
+.expand{
+    display: none;
+    width: 100vw;
+}
+.show{
+    display: block;
+}
 /*----------------------------- BODY ----------------------------- */
 .restaurant-list{
     display: flex;
@@ -368,6 +403,8 @@ body{
     opacity: 0.3;
     pointer-events: none;
 }    
+
+
 /*----------------------------- Footer ----------------------------- */
 #footer {
 
@@ -423,7 +460,10 @@ body{
   .item-img{
     display: none;
   }
-
+  .header >a >div>h1{
+    font-size: large;
+  }
+  .accord{width: 100%;}
 }
 
 
@@ -431,15 +471,40 @@ body{
 
 /* media query to handle header nav items */
 
-@media only screen and (max-width: 850px){  
+@media only screen and (max-width: 800px){  
     .rest-item{
         width: 95%;
     }  
     .pc-nav-items{
         display: none;
     }
-    .mobile-nav-items{
-        display: none;
+    .hamburger{
+        display: flex;
+        flex-direction: column;
+        gap:0.3rem;
     }
+    .bar{
+        border-radius: 20px;
+        height: 3px;
+        width:24px;
+        background-color: rgb(100, 96, 87);
+    }
+    .mobile-nav-items{
+        display: flex;
+        justify-content: space-evenly;
+        gap:1rem;
+        list-style-type: none;
+        font-size: medium;
+        margin-right: 1.25rem;
+    }
+
+    .mobile-nav-items > ul{
+        font-size: smaller;
+    }
+
+    .accord{
+        width: 50%;
+    }
+
 }
 

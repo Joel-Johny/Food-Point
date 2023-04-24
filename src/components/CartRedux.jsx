@@ -33,7 +33,7 @@ const CartRedux=()=>{
         <>
         <div className={alert ? 'opacity' : 'crContainer'}>
             
-            <h1 className="recommend"> This is the cart component that uses the cart slice of the Redux Store</h1>
+            <h3 className="recommend"> This is the cart component that uses the cart slice of the Redux Store</h3>
 
             <div className="rest-menu">
                 {(total>0)
