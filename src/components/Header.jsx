@@ -27,7 +27,7 @@ export default function Header(){
             <div className="header">
             <Link to="/">
             <div className="logo">
-                <img id="title" src="../public/vite.svg" alt="some logo" />
+                <img id="title" src="/logo.jpg" alt="some logo" style={{width:'50px'}} />
                 <h1 htmlFor="title">Food-Point</h1>
             </div>
             </Link>
