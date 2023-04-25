@@ -316,7 +316,7 @@ input::placeholder {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 4rem;
+    padding: 3rem;
 }
 .summary>p{
     width: 70%;

@@ -60,7 +60,7 @@ const About = () => {
         <a href="https://www.linkedin.com/in/joel--johny/" target="_blank" rel="noopener noreferrer"><img src="/lin.png" alt="" style={{width:'75px'}}/></a>
         <a href="mailto:joelj088@gmail.com"><img src="/gmail.jpg" alt="" style={{width:'49px'}}/></a>
       </div>
-      <h2 style={{textAlign:"center",fontSize:"smaller"}}>Developed with ❤️ by JJ</h2>
+      <h2 style={{textAlign:"center",fontSize:"smaller",marginBottom:"1rem"}}>Developed with ❤️ by JJ</h2>
 
     </>
   );
