@@ -57,9 +57,13 @@ export default function Body(){
 
     return(
         (allRestaurants.length===0)
-        ?<div className="restaurant-list margin">
-            <Shimmer/>
-        </div>
+        ?(<>
+            <h2 style={{textAlign:"center",marginTop:'4rem'}}>Refresh page if it doesn't load..!</h2>
+            <div className="restaurant-list ">
+                <Shimmer/>
+            </div>
+        </>
+        )
         :
         <main className="main">
             <div className="search-container">
