@@ -5,9 +5,7 @@ import Header from './components/Header'
 import Body from './components/Body'
 import About from './components/About'
 import Error from './components/Error'
-import Contact from './components/Contact'
 import RestaurantMenu from './components/RestaurantMenu'
-import Profile from './components/Profile'
 import AccordianDemo from './components/AccordianDemo'
 import { Provider } from 'react-redux'
 import store from './utils/store'
@@ -45,18 +43,10 @@ const appRouter=createBrowserRouter([
           {
             path:"",
             element:<About/>
-          },
-          {
-            path:"profile",
-            element:<Profile />
           }
         ]
       },
       
-      {
-        path:"contact",
-        element:<Contact/>
-      },
       {
         path:"accordian",
         element:<AccordianDemo/>

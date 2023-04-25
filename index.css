@@ -291,10 +291,11 @@ input::placeholder {
     justify-content: center;
     flex-direction: column;
     gap: 1rem;
-    align-items: center;
+    align-items: flex-start;
     width: 25%;
     border:1px solid rgb(2, 139, 111);
     margin-top: 0.5rem;
+    cursor: pointer;
     padding: 1rem;
 }   
 
@@ -305,9 +306,31 @@ input::placeholder {
     display: flex;
     flex-direction: column;   
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.75rem;
+}
 
+/*----------------------------- About ----------------------------- */
+.summary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 4rem;
+}
+.summary>p{
+    width: 70%;
+    text-align: center;
+}
+.summary>big{
+    width: 50%;
+}
+.socials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
 /*----------------------------- CartRedux ----------------------------- */
@@ -467,24 +490,6 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 500px){  
-  .item-img{
-    display: none;
-  }
-  .header >a >div>h1{
-    font-size: large;
-  }
-  #title{
-    width: 40px;
-  }
-  .accord{width: 100%;}
-}
-
-
-
-
-/* media query to handle header nav items */
-
-@media only screen and (max-width: 800px){  
     .rest-item{
         width: 95%;
     }  
@@ -519,5 +524,63 @@ input::placeholder {
         width: 50%;
     }
 
+    .item-img{
+    display: none;
+  }
+  .header >a >div>h1{
+    font-size: large;
+  }
+  #title{
+    width: 40px;
+  }
+  .accord{width: 100%;}
+  .summary>p{
+    width: 100%;
+  }
+}
+
+
+
+
+/* media query to handle header nav items */
+
+@media only screen and (max-width: 800px )and (min-width: 500px ){  
+    .rest-item{
+        width: 95%;
+    }  
+    .pc-nav-items{
+        display: none;
+    }
+    .hamburger{
+        display: flex;
+        flex-direction: column;
+        gap:0.3rem;
+    }
+    .bar{
+        border-radius: 20px;
+        height: 3px;
+        width:24px;
+        background-color: rgb(59, 58, 54);
+    }
+    .mobile-nav-items{
+        display: flex;
+        justify-content: space-evenly;
+        gap:1rem;
+        list-style-type: none;
+        font-size: medium;
+        margin-right: 1.25rem;
+    }
+
+    .mobile-nav-items > ul{
+        font-size: smaller;
+    }
+
+    .accord{
+        width: 50%;
+    }
+    .summary>p{
+        width: 90%;
+        text-align: center;
+    }
 }
 
