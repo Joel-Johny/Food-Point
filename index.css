@@ -114,7 +114,6 @@ body{
     align-items: flex-start;
     border-radius: 10px;
     line-height: 2rem;
-    border: 1px solid grey;
 }
 .rest-name{
     font-size: 40;
