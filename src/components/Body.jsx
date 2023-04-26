@@ -58,7 +58,6 @@ export default function Body(){
     return(
         (allRestaurants.length===0)
         ?(<>
-            <h2 style={{textAlign:"center",marginTop:'4rem'}}>Initial loading may take upto 10sec Please wait..!</h2>
             <div className="restaurant-list ">
                 <Shimmer/>
             </div>
