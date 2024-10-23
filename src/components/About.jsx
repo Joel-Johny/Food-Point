@@ -1,4 +1,5 @@
 import React from "react";
+import AboutClass from "./AboutClassChildren";
 
 const About = () => {
   const [visible, setVisible] = React.useState("");
@@ -22,7 +23,6 @@ const About = () => {
       <p>
       Food-Point is a responsive web application built using React, Redux, and React Router on the front-end, with Express on the back-end to fetch data from Swiggy's API. The website allows users to search for and view details of restaurants, menus, and prices on any device, including desktops, tablets, and smartphones. However, as I am still learning, there may be some bugs that need to be found and sorted out..!
       </p>
-
     </div>
       <div className="">
         <h2 style={{textAlign:"center"}}>Tech-Stack used:</h2>

@@ -10,6 +10,8 @@ import AccordianDemo from './components/AccordianDemo'
 import { Provider } from 'react-redux'
 import store from './utils/store'
 import CartRedux from './components/CartRedux'
+import About2Class from './components/About2Class'
+import About2Function from './components/About2Function'
 
 const AppLayout=()=>{
 
@@ -25,45 +27,50 @@ const AppLayout=()=>{
     )
 }
 
-const appRouter=createBrowserRouter([
+const appRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout/>,
-    errorElement:<Error/>,
-    children:[
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
       {
-        path:"",
-        element:<Body/>
+        path: "",
+        element: <Body />
       },
-      
       {
-        path:"about",
-        element:<Outlet/>,
-        children:[
+        path: "about",
+        element: <About />
+      },   
+      {
+        path: "about2class",
+        element: <About2Class />
+      },
+      {
+        path: "about2function",
+        element: <About2Function />
+      },
+      {
+        path: "accordian",
+        element: <AccordianDemo />,  // Main element for /accordian
+        children: [
           {
-            path:"",
-            element:<About/>
+            path: "about",  // Nested route under /accordian/about
+            element: <About />
           }
         ]
       },
-      
       {
-        path:"accordian",
-        element:<AccordianDemo/>
-      },    
-      {
-        path:"cartRedux",
-        element:<CartRedux/>
+        path: "cartRedux",
+        element: <CartRedux />
       },
-        
       {
-        path:"/restaurant/:id",
-        element:<RestaurantMenu/>
-      },
+        path: "/restaurant/:id",
+        element: <RestaurantMenu />
+      }
     ]
   }
+]);
 
-])
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(<RouterProvider router={appRouter}/>)
 

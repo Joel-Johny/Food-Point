@@ -1,4 +1,4 @@
-import { swiggyUrl } from "../constant"
+import { swiggyUrl,restaurants } from "../constant"
 import React,{useEffect} from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { setLocation } from "./cartSlice"
@@ -37,14 +37,19 @@ const useFetchData=()=>{
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(coordinates)
             };
-            const data= await fetch(`https://food-point-backend.onrender.com/api/rlist1`, options)
-            const json=await data.json()
-            const length=json.data.success.cards.length
+
+            // using hardcoded data for now
+            // const data= await fetch(`https://food-point-backend.onrender.com/api/rlist1`, options)
+            // const json=await data.json()
+            // const length=json.data.success.cards.length
 
 
 
-            setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
-            setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            // setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            // setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+
+            setFilteredRestaurants(restaurants)
+            setAllRestaurants(restaurants)
 
             //here batch state update occurs and component will get updated once not twice
           }
@@ -56,12 +61,14 @@ const useFetchData=()=>{
             const coordinates = {'latitude':18.5204,'longitude':73.8567};  
             dispatch(setLocation(coordinates)) 
 
-            const data= await fetch(`https://food-point-backend.onrender.com/api/rlist2`)
-            const json=await data.json()
+            // const data= await fetch(`https://food-point-backend.onrender.com/api/rlist2`)
+            // const json=await data.json()
 
-            const length=json.data.success.cards.length
-            setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
-            setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            // const length=json.data.success.cards.length
+            // setFilteredRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            // setAllRestaurants(json.data.success.cards[length-1].gridWidget.gridElements.infoWithStyle.restaurants)
+            setFilteredRestaurants(restaurants)
+            setAllRestaurants(restaurants)
           }
           
         navigator.geolocation.getCurrentPosition(success, error, options);

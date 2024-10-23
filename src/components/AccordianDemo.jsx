@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Outlet } from "react-router-dom";
 const Basic=({title,description})=>{
      //child
     const [visible,setVisible]=React.useState(false)
@@ -71,6 +71,7 @@ const AccordianDemo =()=>{
     const [visible,setVisible]=React.useState("")
     return (
         <>
+        <Outlet/>
         <div className="basic">
             <h2>This is Basic Accordian. </h2>
             <p>Here state is maintained by indivuidual Accordian Component</p>
