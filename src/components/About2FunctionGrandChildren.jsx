@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 const About2FunctionGrandChildren = ({name}) => {
 
-  console.log("child render",name)
+  console.log("Grand child render",name)
   
   useEffect(()=>{
-    console.log("child did mount",name);
+    console.log("Grand child did mount",name);
   },[])
 
   return (

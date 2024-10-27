@@ -21,7 +21,7 @@ class About2Class extends React.Component{
         <div className="summary">
   
           <AboutClassChildren name={"First"} age={"18"} />
-          <AboutClassChildren name={"Second"} age={"1820"} />
+          {/* <AboutClassChildren name={"Second"} age={"1820"} /> */}
         </div>
       </>
     );

@@ -7,19 +7,7 @@ const [online,setOnline]=React.useState(true)
 
 useEffect(()=>{
 
-    function online(){
-        setOnline(true)
-        console.log("called online")
-    }
-    
-    function offline(){
-        setOnline(false)
-        console.log("called offline")
-    }
 
-
-    window.addEventListener("online",online)
-    window.addEventListener("offline",offline)
 
     // return()=>{
     //     window.removeEventListener("online",online)
@@ -30,6 +18,19 @@ useEffect(()=>{
 }
 ,[])
 
+function onlineF(){
+    setOnline(true)
+    console.log("called online")
+}
+
+function offlineF(){
+    setOnline(false)
+    console.log("called offline")
+}
+
+
+window.addEventListener("online",onlineF)
+window.addEventListener("offline",offlineF)
 
 return online
 }

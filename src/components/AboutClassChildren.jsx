@@ -9,12 +9,21 @@ class AboutClassChildren extends React.Component {
       count1: 0,
       count2: 0,
     };
-    console.log("child constructor",this.props.name)
+    console.log("child constructor")
   }
 
-  componentDidMount(){
-    console.log("Child did mount",this.props.name)
-  }
+  async componentDidMount(){
+    const callApi = async()=>{
+
+      const data = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+      const json = await data.json()
+      console.log(json)
+
+    }
+    callApi()
+    console.log("Child component did mount")
+
+    }
 
   render() {
     console.log("child render",this.props.name)
