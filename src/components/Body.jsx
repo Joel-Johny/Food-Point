@@ -1,5 +1,5 @@
 import React from "react"
-import Card from "./Card"
+import Card,{PromotedRestaurant} from "./Card"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
 import useFetchData from "../utils/useFetchData"
@@ -11,6 +11,7 @@ export default function Body(){
     const [search,setSearch]=React.useState("")
     const [show,setShow]=React.useState(false)
     const [filteredRestaurants,setFilteredRestaurants,allRestaurants,setAllRestaurants]=useFetchData()  //SEE THIS VERY IMP
+    const PromotedRestaurantCard = PromotedRestaurant(Card)
     function toggleShow(){
         setShow(true)
     }
@@ -80,7 +81,7 @@ export default function Body(){
                   ?(filteredRestaurants.map((restaurant,index)=>{
                     return (
                         <Link to={"/restaurant/"+restaurant.info.id}>
-                    <Card {...restaurant.info} key={index}/>
+                            {restaurant.info?.promoted===true?<PromotedRestaurantCard {...restaurant.info} key={index}/>:<Card {...restaurant.info} key={index}/>}
                         </Link>
                         
                     )

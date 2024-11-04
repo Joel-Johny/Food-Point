@@ -20,3 +20,15 @@ export default function Card({name,cloudinaryImageId,cuisines,areaName}){
         </div>
     )
 }
+
+export const PromotedRestaurant = (RestaurantCard) => {
+    return (props) => {
+      return (
+        <>
+          <label>Promoted</label>
+          <RestaurantCard {...props} />
+        </>
+      );
+    };
+  };
+  

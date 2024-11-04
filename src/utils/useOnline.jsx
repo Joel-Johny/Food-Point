@@ -1,38 +1,30 @@
-import React,{useEffect} from "react";
-
+import React, { useEffect } from "react";
 
 const useOnline = () => {
+  const [online, setOnline] = React.useState(true);
+    console.log("Calling useOnline Render phase")
+  useEffect(() => {
+    window.addEventListener("online", onlineF);
+    window.addEventListener("offline", offlineF);
 
-const [online,setOnline]=React.useState(true)
+    return () => {
+      window.removeEventListener("online", onlineF);
+      window.removeEventListener("offline", offlineF);
+      //to cleanUP the function
+    };
+  }, []);
 
-useEffect(()=>{
+  function onlineF() {
+    setOnline(true);
+    console.log("called online");
+  }
 
+  function offlineF() {
+    setOnline(false);
+    console.log("called offline");
+  }
 
+  return online;
+};
 
-    // return()=>{
-    //     window.removeEventListener("online",online)
-    //     window.removeEventListener("offline",offline)
-    //     //to cleanUP the function
-    // }
-
-}
-,[])
-
-function onlineF(){
-    setOnline(true)
-    console.log("called online")
-}
-
-function offlineF(){
-    setOnline(false)
-    console.log("called offline")
-}
-
-
-window.addEventListener("online",onlineF)
-window.addEventListener("offline",offlineF)
-
-return online
-}
-
-export default useOnline
+export default useOnline;
