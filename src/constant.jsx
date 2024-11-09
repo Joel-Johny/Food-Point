@@ -1,8 +1,6 @@
 export const url =
   "https://media-assets.swiggy.com/swiggy/image/upload/";
-// nagwara default
-export const swiggyUrl =
-  "https://www.swiggy.com/mapi/homepage/getCards?lat=18.5204&lng=73.8567";
+  export const swiggyRestaurants = "https://www.swiggy.com/dapi/restaurants/list/v5?";
 export const swiggyRestMenu =
   "https://www.swiggy.com/mapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.5204&lng=73.8567&restaurantId=";
 export const restaurants =   [

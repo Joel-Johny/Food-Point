@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {createBrowserRouter,RouterProvider,Outlet} from "react-router-dom"
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Body from './components/Body'
 import About from './components/About'
 import Error from './components/Error'
@@ -41,24 +41,24 @@ const appRouter = createBrowserRouter([
         path: "about",
         element: <About />
       },   
-      {
-        path: "about2class",
-        element: <About2Class />
-      },
-      {
-        path: "about2function",
-        element: <About2Function />
-      },
-      {
-        path: "accordian",
-        element: <AccordianDemo />,  // Main element for /accordian
-        children: [
-          {
-            path: "about",  // Nested route under /accordian/about
-            element: <About />
-          }
-        ]
-      },
+      // {
+      //   path: "about2class",
+      //   element: <About2Class />
+      // },
+      // {
+      //   path: "about2function",
+      //   element: <About2Function />
+      // },
+      // {
+      //   path: "accordian",
+      //   element: <AccordianDemo />,  // Main element for /accordian
+      //   children: [
+      //     {
+      //       path: "about",  // Nested route under /accordian/about
+      //       element: <About />
+      //     }
+      //   ]
+      // },
       {
         path: "cartRedux",
         element: <CartRedux />

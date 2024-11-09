@@ -71,6 +71,7 @@ const cartSlice=createSlice({
         },
         clearCart:((state)=>{
             state.items=[]
+            // he says we cant do the above
             state.total=0
         }),
         updateBill:((state)=>{

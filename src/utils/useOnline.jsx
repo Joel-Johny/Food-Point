@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 const useOnline = () => {
   const [online, setOnline] = React.useState(true);
-    console.log("Calling useOnline Render phase")
+    // console.log("Calling useOnline Render phase")
   useEffect(() => {
     window.addEventListener("online", onlineF);
     window.addEventListener("offline", offlineF);
