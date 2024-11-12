@@ -64,16 +64,9 @@
   gap: 0.25rem;
   width: 100%;
   text-align: center;
-  display: none;
-  opacity: 0;
-  max-height: 0;
-  transition: max-height 2s ease-in-out, opacity 25s ease-in-out;
 }
 
-.show{
-  opacity: 1;
-  max-height: 300px; /* Replace fit-content with a suitable height */
-}
+
 
 .expand-nav-items li {
   width: 100%;

@@ -82,18 +82,22 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""}`}>
-            <ToggleButton
-              hamburgerIsOpen={hamburgerIsOpen}
-              toggleHamburger={toggleHamburger}
-            />
-            <li onClick={toggleHamburger}>
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li onClick={toggleHamburger}>
-              <NavLink to="/about">About</NavLink>
-            </li>
-          </ul>
+          {hamburgerIsOpen ? (
+            <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""}`}>
+              <ToggleButton
+                hamburgerIsOpen={hamburgerIsOpen}
+                toggleHamburger={toggleHamburger}
+              />
+              <li onClick={toggleHamburger}>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li onClick={toggleHamburger}>
+                <NavLink to="/about">About</NavLink>
+              </li>
+            </ul>
+          ) : (
+            <></>
+          )}
         </div>
       </header>
     </>

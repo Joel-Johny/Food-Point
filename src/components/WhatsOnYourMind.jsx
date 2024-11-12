@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhatsOnYourMind = () => {
   return (
-    <div>WhatsOnYourMind</div>
+    <div>WhatsOnYourMsssind</div>
   )
 }
 
