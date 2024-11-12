@@ -82,22 +82,21 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          {hamburgerIsOpen ? (
             <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""}`}>
-              <ToggleButton
-                hamburgerIsOpen={hamburgerIsOpen}
-                toggleHamburger={toggleHamburger}
-              />
+
               <li onClick={toggleHamburger}>
                 <NavLink to="/">Home</NavLink>
               </li>
               <li onClick={toggleHamburger}>
                 <NavLink to="/about">About</NavLink>
               </li>
+
+              <ToggleButton
+                hamburgerIsOpen={hamburgerIsOpen}
+                toggleHamburger={toggleHamburger}
+              />
             </ul>
-          ) : (
-            <></>
-          )}
+
         </div>
       </header>
     </>

@@ -64,9 +64,17 @@
   gap: 0.25rem;
   width: 100%;
   text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
 }
 
-
+.show{
+  max-height: 400px;
+  opacity: 1;
+  overflow: auto;
+}
 
 .expand-nav-items li {
   width: 100%;
