@@ -2,24 +2,18 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import "./Header.css";
-import {useThemeContext} from "../../utils/ThemeContext";
+import { useThemeContext } from "../../utils/ThemeContext";
 import ToggleButton from "./ToggleButton";
-
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 export default function Header() {
-  const {theme} = useThemeContext;
+  const { theme } = useThemeContext();
   const cartCount = useSelector((store) => {
     return store.cart.total;
   });
-  const [hamvis, setHamvis] = React.useState(true);
-  function toggleTox() {
-    document.getElementsByClassName("expand")[0].classList.add("show");
-    setHamvis((old) => {
-      return !old;
-    });
-  }
-  function toggleToH() {
-    document.getElementsByClassName("expand")[0].classList.remove("show");
-    setHamvis((old) => {
+  const [hamburgerIsOpen, setHamburgerIsOpen] = React.useState(false);
+  console.log(hamburgerIsOpen);
+  function toggleHamburger() {
+    setHamburgerIsOpen((old) => {
       return !old;
     });
   }
@@ -30,56 +24,57 @@ export default function Header() {
           <div className="header">
             <NavLink to="/">
               <div className="logo">
-                <img id="title" src="/logo.jpg" alt="some logo" />
+                <img src="/logo2.png" alt="somelogo" />
                 <h1 htmlFor="title">Food-Point</h1>
               </div>
             </NavLink>
 
             <div className="nav-items">
-              <div className="mobile-nav-items">
+              <div className="mobile-nav-items vh-flex-center">
                 <ul style={{ listStyle: "none" }}>
                   <li>
-                  <NavLink to="/cartRedux">
-                    <div className="cartIconContainer vh-flex-center">
-                      <img className="cartIcon" src="/cart.png" alt="cart" />
-                      <span>Cart</span>
-                      <div className="cartItemCount">
-                        <span>{cartCount}</span>
+                    <NavLink to="/cartRedux">
+                      <div className="cartIconContainer vh-flex-center">
+                        <ShoppingCartOutlinedIcon />
+                        <div className="cartItemCount">
+                          <span>{cartCount}</span>
+                        </div>
                       </div>
-                    </div>
-                  </NavLink>
+                    </NavLink>
                   </li>
                 </ul>
 
-                {hamvis && (
-                  <div className="hamburger" onClick={toggleTox}>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                    <span className="bar"></span>
-                  </div>
-                )}
-                {!hamvis && (
-                  <img
-                    onClick={toggleToH}
-                    style={{ height: "20px", width: "20px" }}
-                    src="/cross.png"
+                <div className={`hamburger`} onClick={toggleHamburger}>
+                  <div
+                    className={`bar ${hamburgerIsOpen ? "bar1" : ""} ${
+                      theme == "light" ? "light-ham" : "dark-ham"
+                    }`}
                   />
-                )}
+                  <div
+                    className={`bar ${hamburgerIsOpen ? "bar2" : ""} ${
+                      theme == "light" ? "light-ham" : "dark-ham"
+                    }`}
+                  />
+                  <div
+                    className={`bar ${hamburgerIsOpen ? "bar3" : ""} ${
+                      theme == "light" ? "light-ham" : "dark-ham"
+                    }`}
+                  />
+                </div>
               </div>
 
               <ul className="pc-nav-items">
-                
-                <ToggleButton/>
+                <ToggleButton />
                 <li>
                   <NavLink to="/about">About</NavLink>
                 </li>
                 <li>
                   <NavLink to="/cartRedux">
                     <div className="cartIconContainer vh-flex-center">
-                      <img className="cartIcon" src="/cart.png" alt="cart" />
+                      <ShoppingCartOutlinedIcon />
                       <span>Cart</span>
                       <div className="cartItemCount">
-                        <span >{cartCount}</span>
+                        <span>{cartCount}</span>
                       </div>
                     </div>
                   </NavLink>
@@ -87,16 +82,18 @@ export default function Header() {
               </ul>
             </div>
           </div>
-          <div className="expand">
-            <ul className="expand-nav-items">
-              <li onClick={toggleToH}>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li onClick={toggleToH}>
-                <NavLink to="/about">About</NavLink>
-              </li>
-            </ul>
-          </div>
+          <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""}`}>
+            <ToggleButton
+              hamburgerIsOpen={hamburgerIsOpen}
+              toggleHamburger={toggleHamburger}
+            />
+            <li onClick={toggleHamburger}>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li onClick={toggleHamburger}>
+              <NavLink to="/about">About</NavLink>
+            </li>
+          </ul>
         </div>
       </header>
     </>

@@ -460,32 +460,6 @@ input::placeholder {
   .rest-item {
     width: 95%;
   }
-  .pc-nav-items {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-  }
-  .bar {
-    border-radius: 20px;
-    height: 3px;
-    width: 24px;
-    background-color: rgb(59, 58, 54);
-  }
-  .mobile-nav-items {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 1rem;
-    list-style-type: none;
-    font-size: medium;
-    margin-right: 1.25rem;
-  }
-
-  .mobile-nav-items > ul {
-    font-size: smaller;
-  }
 
   .accord {
     width: 50%;
@@ -494,9 +468,7 @@ input::placeholder {
   .item-img {
     display: none;
   }
-  .header > a > div > h1 {
-    font-size: large;
-  }
+
   #title {
     width: 40px;
   }

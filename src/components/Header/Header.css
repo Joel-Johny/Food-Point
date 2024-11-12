@@ -6,7 +6,7 @@
   height: 70px;
   justify-content: space-between;
   padding: 1.5rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -17,7 +17,7 @@
   width: 27px;
 }
 .cartItemCount {
-  background-color:rgb(238, 44, 44);
+  background-color: rgb(238, 44, 44);
   border-radius: 50%;
   height: 20px;
   width: 20px;
@@ -27,7 +27,7 @@
   color: white;
   margin-bottom: 9px;
   margin-left: 3px;
-  padding-top:1px;
+  padding-top: 1px;
 }
 
 .pc-nav-items {
@@ -45,11 +45,11 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   color: rgb(238, 44, 44);
 }
-#title {
-  width: 40px;
+.logo > img {
+  width: 45px;
 }
 .header > div > ul > li:hover {
   box-shadow: 0 3px 0px 0 rgb(204, 135, 6);
@@ -64,6 +64,15 @@
   gap: 0.25rem;
   width: 100%;
   text-align: center;
+  display: none;
+  opacity: 0;
+  max-height: 0;
+  transition: max-height 2s ease-in-out, opacity 25s ease-in-out;
+}
+
+.show{
+  opacity: 1;
+  max-height: 300px; /* Replace fit-content with a suitable height */
 }
 
 .expand-nav-items li {
@@ -75,18 +84,15 @@
   color: white;
 }
 .expand {
-  display: none;
   width: 100vw;
 }
 .show {
   display: block;
 }
 
-
-
 /* media query to handle header nav items */
 
-@media only screen and (max-width: 768px) and (min-width: 425px) {
+@media only screen and (max-width: 768px) and (min-width: 200px) {
   .rest-item {
     width: 95%;
   }
@@ -98,11 +104,33 @@
     flex-direction: column;
     gap: 0.3rem;
   }
+  .header > a > div > h1 {
+    font-size: 22px;
+  }
   .bar {
     border-radius: 20px;
     height: 3px;
     width: 24px;
-    background-color: rgb(59, 58, 54);
+    transition: transform 0.4s ease, opacity 0.3s ease;
+    background-color: #333;
+  }
+  .light-ham {
+    background-color: #333;
+  }
+  .dark-ham {
+    background-color: white;
+  }
+
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .bar3 {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
   .mobile-nav-items {
     display: flex;
@@ -114,4 +142,12 @@
     font-size: smaller;
   }
 
+  .header {
+    padding: 0.5rem;
+  }
+
+  .logo > img {
+    height: 35px;
+    width: 35px;
+  }
 }
