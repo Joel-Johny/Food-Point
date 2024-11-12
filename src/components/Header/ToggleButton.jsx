@@ -36,7 +36,7 @@ const ToggleButton = ({ hamburgerIsOpen, toggleHamburger ,data}) => {
           toggleTheme();
         }}
       >
-        {theme == "light" ? "Swith to Dark" : "Switch to Light"}
+        {theme == "light" ? "Swith to Dark Mode" : "Switch to Light Mode"}
       </li>
     );
   }
