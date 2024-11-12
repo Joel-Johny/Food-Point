@@ -54,7 +54,7 @@ const CartRedux=()=>{
                 )
                 :(
                     <><div className="empty">
-                        <img src='https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0' style={{margin:'1rem',padding:`1rem`,height:`20rem`}}/>
+                        <img src='./cart_empty.png' style={{margin:'1rem',padding:`1rem`,height:`20rem`}}/>
                         <h2>Your Cart is Empty</h2>
                         <big>You can go to home page to view more restaurants</big>
                         <div className="see-rest" onClick={goHome}>SEE RESTAURANTS NEAR YOU</div>
