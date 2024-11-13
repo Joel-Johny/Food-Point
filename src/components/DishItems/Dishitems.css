@@ -1,0 +1,41 @@
+.dishes-container {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 5px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 15px 0;
+  -webkit-overflow-scrolling: touch; /* Enables smooth scrolling on mobile */
+  transition: all 0.3s ease-in-out;
+}
+
+.dishes-container::-webkit-scrollbar {
+  display: none;
+}
+
+.dish-item {
+  transition: transform 0.2s ease-in-out;
+  text-align: center;
+  gap: 10px;
+}
+.img-wrapper{
+    height: 133px;
+    overflow-y: hidden;
+    border-radius: 35px;
+}
+.dishes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.dishes>div{
+    overflow: hidden;
+    width: 100%;
+}
+.dish-item:hover {
+  transform: scale(0.85);
+}
+
+.dish-img {
+  width: 140px;
+}

@@ -3,7 +3,9 @@ import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useFetchData from "../utils/useFetchData";
 import useOnline from "../utils/useOnline";
-import WhatsOnYourMind from "./WhatsOnYourMind";
+import DishItems from "./DishItems/DishItems";
+import  RestaurantCardSlider from "./RestaurantCardSlider/RestaurantCardSlider";
+import  RestaurantListing from "./RestaurantListing/RestaurantListing";
 export default function Body() {
   // const [search, setSearch] = React.useState("");
   // const [show, setShow] = React.useState(false);
@@ -62,8 +64,8 @@ export default function Body() {
       </div>
     </>
   ) : (
-    <div className="wrapper">
-      <main className="main">
+    <div className="h-flex-center">
+      <div className="mainContainer">
         {/* Commenting out search feature where we could search and filtr out restaurants after all rest we got in state */}
         {/* <div className="search-container">
                 {(show)
@@ -76,28 +78,28 @@ export default function Body() {
           {restaurantCardData.map((restaurantCard) => {
             if (restaurantCard.card.card.id == "whats_on_your_mind")
               return (
-                <WhatsOnYourMind
+                <DishItems
                   key={restaurantCard.card.card.id}
-                  data={restaurantCard}
+                  dishData={restaurantCard}
                 />
               );
-            // else if (restaurantCard.card.card.id == "top_brands_for_you")
-            //   return (
-            //     <TopBrandsForYou
-            //       key={restaurantCard.card.card.id}
-            //       data={restaurantCard}
-            //     />
-            //   );
-            // else
-            //   return (
-            //     <RestaurantListings
-            //       key={restaurantCard.card.card.id}
-            //       data={restaurantCard}
-            //     />
-            //   );
+            else if (restaurantCard.card.card.id == "top_brands_for_you")
+              return (
+                <RestaurantCardSlider
+                  key={restaurantCard.card.card.id}
+                  restaurantData={restaurantCard}
+                />
+              );
+            else
+              return (
+                <RestaurantListing
+                  key={restaurantCard.card.card.id}
+                  restaurantData={restaurantCard}
+                />
+              );
           })}
         </div>
-      </main>
+      </div>
     </div>
   );
 }

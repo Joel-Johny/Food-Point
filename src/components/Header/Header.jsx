@@ -11,7 +11,6 @@ export default function Header() {
     return store.cart.total;
   });
   const [hamburgerIsOpen, setHamburgerIsOpen] = React.useState(false);
-  console.log(hamburgerIsOpen);
   function toggleHamburger() {
     setHamburgerIsOpen((old) => {
       return !old;
@@ -20,7 +19,7 @@ export default function Header() {
   return (
     <>
       <header className="h-flex-center shadow">
-        <div className="mainContianer">
+        <div className="mainContainer">
           <div className="header">
             <NavLink to="/">
               <div className="logo">

@@ -2,7 +2,8 @@ import { swiggyRestaurants } from "../constant";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setLocation } from "./cartSlice";
-
+import axios
+ from "axios";
 const useFetchData = () => {
   const [restaurantCardData, setRestaurantCardData] = React.useState([]);
   const dispatch = useDispatch();
@@ -35,19 +36,19 @@ const useFetchData = () => {
   };
 
   const handleLocationError = () => {
-    const defaultCoordinates = { latitude: 18.5204, longitude: 73.8567 };
+    const defaultCoordinates = { latitude: 13.04051, longitude: 77.62466 };
     dispatch(setLocation(defaultCoordinates));
     fetchRestaurantData(defaultCoordinates);
   };
 
   const fetchRestaurantData = async (coordinates) => {
+    const url = `${swiggyRestaurants}lat=${coordinates.latitude}&lng=${coordinates.longitude}`;
     try {
-      const response = await fetch(
-        `${swiggyRestaurants}lat=${coordinates.latitude}&lng=${coordinates.longitude}`
-      );
-      const json = await response.json();
+      // const response = await fetch(url);
+      // const json = await response.json();
+      const response = await axios.get(url);
+      const json = await response.data;
       const allCardData = json?.data?.cards;
-
       if (!allCardData) {
         setRestaurantCardData(undefined);
         return;

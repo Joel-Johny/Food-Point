@@ -6,8 +6,6 @@
 }
 /* Add a transition for smooth theme switching */
 
-
-
 a {
   text-decoration: none;
   color: inherit;
@@ -21,20 +19,21 @@ body {
   font-family: "Libre Baskerville", serif;
 }
 
-.dark-theme, .light-theme {
+.dark-theme,
+.light-theme {
   transition: background-color 0.5s ease, color 0.5s ease;
   width: 100%;
   height: 100%;
 }
-#root{
+#root {
   width: 100%;
   height: 100%;
 }
+
 /* Dark theme */
 .dark-theme {
   background-color: #333;
   color: #fff;
-  
 }
 
 /* Light theme */
@@ -43,7 +42,7 @@ body {
   color: #333;
 }
 
-.mainContianer {
+.mainContainer {
   width: 1170px;
 }
 .wrapper {
@@ -62,18 +61,38 @@ body {
   display: flex;
   align-items: center;
 }
+
+.h-flexcol-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.v-flexcol-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .vh-flex-center {
   display: flex;
   justify-content: center;
-  align-items: center;}
+  align-items: center;
+}
+
 /*----------------------------- BODY ----------------------------- */
 .restaurant-list {
   display: flex;
   flex-wrap: wrap;
   height: 100%;
-  justify-content: center;
-  gap: 2.5rem;
-  text-align: center;
+  gap: 1.5rem;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.restaurant-list > div {
+  border: 1px solid black;
+  padding: 1rem;
 }
 .card {
   width: 240px;
@@ -483,7 +502,6 @@ input::placeholder {
 /* media query to handle header nav items */
 
 @media only screen and (max-width: 800px) and (min-width: 500px) {
-
   .accord {
     width: 50%;
   }
