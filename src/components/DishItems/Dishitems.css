@@ -58,4 +58,8 @@
         transform: scale(1.2);
     }
 
+    .dishes>h3{
+      font-size: 15px;
+    }
+
 }

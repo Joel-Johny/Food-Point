@@ -9,10 +9,10 @@ import {useThemeContext} from "../../utils/ThemeContext";
 const RestaurantCard = ({ restaurant }) => {
   return (
     <>
-      <div className="restaurant-card">
+      <div className="restaurant-card carousel">
         <img
           src={imageUrl + restaurant.info.cloudinaryImageId}
-          className="rest-img"
+          className="rest-img img-carousel"
         />
 
         <div className="rest-description">
@@ -54,7 +54,7 @@ const RestaurantCardSlider = ({ restaurantData }) => {
   const {theme} = useThemeContext();
   const restaurantsList =
     restaurantData?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-  console.log(restaurantsList);
+  // console.log(restaurantsList);
   const settings = {
     infinite: false,
     speed: 500,
@@ -73,9 +73,9 @@ const RestaurantCardSlider = ({ restaurantData }) => {
       {
         breakpoint: 1000,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {

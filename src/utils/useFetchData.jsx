@@ -49,6 +49,7 @@ const useFetchData = () => {
       const response = await axios.get(url);
       const json = await response.data;
       const allCardData = json?.data?.cards;
+      // console.log(allCardData);
       if (!allCardData) {
         setRestaurantCardData(undefined);
         return;
