@@ -1,11 +1,11 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import "./RestaurantCardSlider.css";
 import { imageUrl } from "../../constant";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StarIcon from "@mui/icons-material/Star";
-
+import {useThemeContext} from "../../utils/ThemeContext";
 const RestaurantCard = ({ restaurant }) => {
   return (
     <>
@@ -51,6 +51,7 @@ const RestaurantCard = ({ restaurant }) => {
 
 const RestaurantCardSlider = ({ restaurantData }) => {
   const header = restaurantData?.card?.card?.header?.title;
+  const {theme} = useThemeContext();
   const restaurantsList =
     restaurantData?.card?.card?.gridElements?.infoWithStyle?.restaurants;
   console.log(restaurantsList);
@@ -86,6 +87,18 @@ const RestaurantCardSlider = ({ restaurantData }) => {
       },
     ],
   };
+
+  useEffect(() => {
+    const slickNext = document.querySelector('.slick-next');
+    const slickPrev = document.querySelector('.slick-prev');
+    if (theme === 'dark') {
+      slickNext.classList.add('theme-dark');
+      slickPrev.classList.add('theme-dark');
+    } else {
+      slickNext.classList.remove('theme-dark');
+      slickPrev.classList.remove('theme-dark');
+    }
+  }, [theme]);
   return (
     <div className="restaurants-container">
       <h3>{header ? header : "Top restaurant chains near you."}</h3>
