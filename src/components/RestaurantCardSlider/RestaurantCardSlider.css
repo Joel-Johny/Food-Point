@@ -1,0 +1,106 @@
+.restaurants-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+  padding: 15px 0;
+}
+
+.restaurants {
+  width: 100%;
+  display: flex;
+}
+
+.restaurant-card {
+  transition: transform 0.2s ease-in-out;
+  width: 330px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.rest-name {
+  font-weight: bolder;
+  font-size: 1.1rem;
+}
+
+.rest-cuisines {
+  font-weight: 100;
+  font-size: 14px;
+}
+.star-icon {
+  color: #14883f;
+  margin: 0 5px;
+}
+
+.restaurants > div {
+  overflow: hidden;
+}
+.restaurant-card:hover {
+  transform: scale(0.94);
+}
+
+.rest-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 5px;
+  width: 100%;
+}
+.rest-description > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.rest-img {
+  height: 230px;
+  object-fit: cover;
+}
+.slick-prev {
+  left: -16px !important;
+  color: rgb(238, 44, 44) !important;
+}
+.slick-next {
+  right: -8px !important;
+  color: rgb(238, 44, 44) !important;
+}
+
+.slick-prev:before, .slick-next:before{
+  color: rgb(238, 44, 44) !important;
+}
+@media only screen and (max-width: 685px) {
+
+  .slick-prev {
+    left: -7px !important;
+    color: rgb(238, 44, 44) !important;
+  }
+  .restaurant-card {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .rest-name {
+    font-size: 0.85rem;
+  }
+  .rest-img {
+    width: 50%;
+    height: 150px;
+  }
+  .rest-cuisines {
+    font-size: 11px;
+  }
+
+  .restaurants-container > h3 {
+    font-size: 15px;
+  }
+
+  .restaurant-list > div {
+    padding: 0.5rem;
+  }
+
+  .rest-name > div > label > svg {
+    margin-left: 2px;
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+}

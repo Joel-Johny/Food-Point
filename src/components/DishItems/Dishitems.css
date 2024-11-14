@@ -40,12 +40,22 @@
 }
 
 .prev-arrow,.next-arrow{
-    transform: scale(2);
+    transform: scale(1.5);
     margin: 0 10px;
-
 }
 .prev-arrow:hover,.next-arrow:hover{
     cursor: pointer;
-    transform: scale(3);
+    transform: scale(2);
     transition: transform 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) and (min-width: 200px) {
+    .prev-arrow,.next-arrow{
+        transform: scale(1.1);
+    }
+
+    .prev-arrow:hover,.next-arrow:hover{
+        transform: scale(1.2);
+    }
+
 }

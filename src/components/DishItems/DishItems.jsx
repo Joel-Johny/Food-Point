@@ -18,17 +18,15 @@ const DishItem = ({ dish }) => {
 const DishItems = ({ dishData }) => {
   const header = dishData?.card?.card?.header?.title;
   const dishesList = dishData?.card?.card?.imageGridCards?.info;
-  const [dishes, setDishes] = React.useState(dishesList);
-  console.log(dishesList);
   function scrollRight() {
     document.querySelector(".dishes-container").scrollBy({
-      left: 300,
+      left: 250,
       behavior: "smooth",
     });
   }
   function scrollLeft() {
     document.querySelector(".dishes-container").scrollBy({
-      left: -300,
+      left: -250,
       behavior: "smooth",
     });
   }
@@ -38,7 +36,7 @@ const DishItems = ({ dishData }) => {
       <div className="vh-flex-center">
         <NavigateBeforeIcon onClick={scrollLeft} className="prev-arrow" />
         <div className="dishes-container">
-          {dishes?.map((dish, index) => (
+          {dishesList?.map((dish, index) => (
             <DishItem dish={dish} key={dish.id} />
           ))}
         </div>
