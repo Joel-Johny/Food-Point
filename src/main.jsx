@@ -14,20 +14,19 @@ import SearchRestaurants from "./components/SearchRestaurants/SearchRestaurants"
 import { ThemeProvider } from "./utils/ThemeContext";
 // import About2Class from './components/About2Class'
 // import About2Function from './components/About2Function'
-import {useThemeContext} from "./utils/ThemeContext";
+import { useThemeContext } from "./utils/ThemeContext";
 
 const AppLayout = () => {
   // Access the theme value from context
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
 
   return (
-    <div className={theme === "dark" ? "dark-theme" : "light-theme"}>
+    <div className={`${theme === "dark" ? "dark-theme" : "light-theme"}`}>
       <Header />
       <Outlet />
     </div>
   );
 };
-
 
 const appRouter = createBrowserRouter([
   {
@@ -78,6 +77,7 @@ const appRouter = createBrowserRouter([
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <ThemeProvider>
     <Provider store={store}>
