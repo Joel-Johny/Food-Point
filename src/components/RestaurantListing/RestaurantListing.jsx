@@ -2,18 +2,18 @@ import React from "react";
 import "./RestaurantListing.css";
 import { imageUrl } from "../../constant";
 import StarIcon from "@mui/icons-material/Star";
+import Skeleton from "react-loading-skeleton";
 
 const RestaurantCard = ({ restaurant }) => {
   return (
     <>
       <div className="restaurant-card restaurant-card-grid">
         <div>
-        <img
-          src={imageUrl + restaurant.info.cloudinaryImageId}
-          className="rest-img"
-        />
+          <img
+            src={imageUrl + restaurant.info.cloudinaryImageId}
+            className="rest-img"
+          />
         </div>
-
 
         <div className="rest-description">
           <div className="rest-name">
@@ -49,18 +49,47 @@ const RestaurantCard = ({ restaurant }) => {
   );
 };
 
+const RestaurnatCardShimmer = () => {
+  return (
+    <div
+      className="restaurant-card restaurant-card-grid "
+    >
+      <div>
+        <Skeleton className="rest-img" />
+      </div>
+      <div className="rest-description">
+        <div className="rest-name">
+          <label>
+            <Skeleton width={250} />
+          </label>
+        </div>
+        <div className="rest-cuisines">
+          <label>
+            <Skeleton width={180} />
+          </label>
+        </div>
+        <div className="rest-cuisines">
+          <label>
+            <Skeleton width={150} />
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+};
 const RestaurantListing = ({ restaurantData }) => {
   const header = restaurantData?.card?.card?.title;
   const restaurantsList = restaurantData?.card?.card?.restaurants;
   return (
-    <div className="restaurants-listing ">
+    <div>
       <h3>{header ? header : "Restaurants with online food delivery "}</h3>
-      <div className="vh-flex-center">
-        <div className="restaurants-grid vh-flex-center">
-          {restaurantsList?.map((restaurant, index) => (
-            <RestaurantCard key={index} restaurant={restaurant} />
-          ))}
-        </div>
+      <div className="restaurants-grid">
+        {restaurantsList?.map((restaurant, index) => (
+          <RestaurantCard key={index} restaurant={restaurant} />
+        ))}
+        <RestaurnatCardShimmer />
+        <RestaurnatCardShimmer />
+        <RestaurnatCardShimmer />
       </div>
     </div>
   );
