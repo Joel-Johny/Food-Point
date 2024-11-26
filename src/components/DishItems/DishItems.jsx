@@ -3,6 +3,7 @@ import "./Dishitems.css";
 import { imageUrl } from "../../constant";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import Skeleton from "react-loading-skeleton";
 const DishItem = ({ dish }) => {
   return (
     <>
@@ -45,4 +46,32 @@ const DishItems = ({ dishData }) => {
     </div>
   );
 };
+const DishItemSkeleton2 = () => {
+  return (
+    <>
+      <div className="dish-item v-flexcol-center">
+        <div style={{ marginTop: "50px" }}>
+          <Skeleton  width={150} height={120} />
+        </div>
+        <Skeleton width={80} height={15} />
+      </div>
+    </>
+  );
+}
+export const DishItemsSkeleton = () => {
+  return (
+    <div className="dishes">
+      <h3>Whats on your mind ??</h3>
+      <div className="vh-flex-center">
+        <NavigateBeforeIcon className="prev-arrow" />
+        <div className="dishes-container">  
+          {
+            Array(15).fill(0).map((value,index)=><DishItemSkeleton2 key={index}/>)
+          }
+        </div>
+        <NavigateNextIcon className="next-arrow" />
+      </div>
+    </div>
+  );
+}
 export default DishItems;

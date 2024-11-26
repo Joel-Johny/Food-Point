@@ -59,10 +59,13 @@ export default function Body() {
 
   return restaurantCardData.length === 0 ? (
     <>
-      <div className="restaurant-list ">
-        <Shimmer />
+    <div className="h-flex-center" >
+      <div className="mainContainer">
+        <div className="restaurant-list">
+          <Shimmer />
+        </div>
       </div>
-    </>
+    </div>    </>
   ) : (
     <div className="h-flex-center">
       <div className="mainContainer">
