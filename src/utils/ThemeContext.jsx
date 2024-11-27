@@ -1,23 +1,34 @@
-import React,{createContext} from 'react'
+import React, { createContext, useState } from "react";
 
-const ThemeContext = createContext()
+const ThemeContext = createContext();
 
-export const ThemeProvider = ({children}) => {
+export const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState(getInitialTheme);
 
-    const [theme,setTheme] = React.useState("light")
+  function toggleTheme() {
+    const themeToSet= theme == "light" ? "dark" : "light";
+    setTheme(themeToSet);
+    localStorage.setItem("theme", themeToSet); // Save to localStorage
+  }
 
-    function toggleTheme(){
-        setTheme(theme=="light"?"dark":"light")
+  function getInitialTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme; // Use saved theme
+    } else {
+      // Fallback to system preference
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
     }
+  }
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
 
-    return(
-        <ThemeContext.Provider value={{theme,toggleTheme}}>
-            {children}
-        </ThemeContext.Provider>
-    )
-}
+export const useThemeContext = () => React.useContext(ThemeContext);
 
-export const useThemeContext = () => React.useContext(ThemeContext)
-
-
-export default ThemeContext
+export default ThemeContext;
