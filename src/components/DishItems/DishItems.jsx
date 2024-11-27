@@ -21,13 +21,13 @@ const DishItems = ({ dishData }) => {
   const dishesList = dishData?.card?.card?.imageGridCards?.info;
   function scrollRight() {
     document.querySelector(".dishes-container").scrollBy({
-      left: 250,
+      left: 165,
       behavior: "smooth",
     });
   }
   function scrollLeft() {
     document.querySelector(".dishes-container").scrollBy({
-      left: -250,
+      left: 165,
       behavior: "smooth",
     });
   }
