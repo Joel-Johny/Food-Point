@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StarIcon from "@mui/icons-material/Star";
 import {useThemeContext} from "../../utils/ThemeContext";
+import Skeleton from "react-loading-skeleton";
 const RestaurantCard = ({ restaurant }) => {
   return (
     <>
@@ -113,4 +114,81 @@ const RestaurantCardSlider = ({ restaurantData }) => {
   );
 };
 
+const RestaurantCardSkeleton = () => {
+  return (
+    <div className="restaurant-card carousel">
+      <Skeleton className="rest-img img-carousel" />
+      <div className="rest-description">
+        <div className="rest-name">
+          <label>
+            <Skeleton width={250} />
+          </label>
+        </div>
+        <div className="rest-cuisines">
+          <label>
+            <Skeleton width={180} />
+          </label>
+        </div>
+        <div className="rest-cuisines">
+          <label>
+            <Skeleton width={150} />
+          </label>
+        </div>        
+        <div className="rest-cuisines">
+          <label>
+            <Skeleton width={150} />
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+}
+export const RestaurantCardSliderSkeleton = () => {
+  const settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 685,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+  return (
+    <div className="restaurants-container">
+      <h3>Top restaurant chains near you.</h3>
+      <div className="slider-container">
+        <Slider {...settings}>
+          {Array(3)
+            .fill(0)
+            .map((value, index) => (
+              <RestaurantCardSkeleton key={index} />
+            ))}
+        </Slider>
+      </div>
+    </div>
+  );
+}
 export default RestaurantCardSlider;

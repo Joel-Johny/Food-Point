@@ -50,7 +50,7 @@ const DishItemSkeleton2 = () => {
   return (
     <>
       <div className="dish-item v-flexcol-center">
-        <div style={{ marginTop: "50px" }}>
+        <div style={{ marginTop: "10px" }}>
           <Skeleton  width={150} height={120} />
         </div>
         <Skeleton width={80} height={15} />
