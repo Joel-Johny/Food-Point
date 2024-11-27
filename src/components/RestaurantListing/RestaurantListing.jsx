@@ -95,4 +95,16 @@ const RestaurantListing = ({ restaurantData }) => {
   );
 };
 
+export const RestaurantListingSkeleton = () => {
+  return (
+    <div>
+      <h3>Restaurants with online food delivery</h3>
+      <div className="restaurants-grid">
+        {Array(10).fill(0)?.map((val, index) => (
+          <RestaurnatCardShimmer key={index}  />
+        ))}
+      </div>
+    </div>
+  );
+}
 export default RestaurantListing;
