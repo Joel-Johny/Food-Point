@@ -81,7 +81,7 @@ export default function Header() {
               </ul>
             </div>
           </div>
-            <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""}`}>
+            <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""} ${theme == "light" ? "background-light" : "background-dark"}`}>
 
               <li onClick={toggleHamburger}>
                 <NavLink to="/">Home</NavLink>
