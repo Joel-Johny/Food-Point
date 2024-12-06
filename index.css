@@ -15,7 +15,23 @@ body {
   flex-direction: column;
   font-family: "Libre Baskerville", serif;
 }
+.button {
+  border: 2px solid #f44336;
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: inherit; 
+  color: inherit;
+  margin-right: 10px;
+}
 
+.button:hover {
+  background-color: #f44336;
+  color: white;
+}
 .dark-theme,
 .light-theme {
   transition: background-color 0.5s ease, color 0.5s ease;

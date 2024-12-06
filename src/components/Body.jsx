@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-import useFetchData from "../utils/useFetchData";
+import {
+  fetchInitialRestaurantData,
+  fetchUserLocationRestaurants,
+} from "../utils/FetchRestaurantData";
 import useOnline from "../utils/useOnline";
 import DishItems from "./DishItems/DishItems";
-import  RestaurantCardSlider from "./RestaurantCardSlider/RestaurantCardSlider";
-import  RestaurantListing from "./RestaurantListing/RestaurantListing";
+import RestaurantCardSlider from "./RestaurantCardSlider/RestaurantCardSlider";
+import RestaurantListing from "./RestaurantListing/RestaurantListing";
+import { useSelector, useDispatch } from "react-redux";
 export default function Body() {
   // const [search, setSearch] = React.useState("");
   // const [show, setShow] = React.useState(false);
-  const [restaurantCardData] = useFetchData(); //SEE THIS VERY IMP
+  // const [restaurantCardData] = useFetchData(); //SEE THIS VERY IMP
+  const dispatch = useDispatch();
 
   // ------Removing search input will make seperate component to search for restaurants-------
 
@@ -40,6 +45,17 @@ export default function Body() {
 
   // ------------------------------------------------------------------------------------------
 
+  const restaurantCardData = useSelector((store) => {
+    return store.restaurants.items;
+  });
+  const currentCity = useSelector((store) => {
+    return store.location.city;
+  });
+
+  useEffect(() => {
+    if (restaurantCardData !== undefined && restaurantCardData.length === 0)
+      fetchInitialRestaurantData(dispatch);
+  }, []);
   const online = useOnline();
   if (!online)
     return (
@@ -59,13 +75,14 @@ export default function Body() {
 
   return restaurantCardData.length === 0 ? (
     <>
-    <div className="h-flex-center" >
-      <div className="mainContainer">
-        <div className="restaurant-list">
-          <Shimmer />
+      <div className="h-flex-center">
+        <div className="mainContainer">
+          <div className="restaurant-list">
+            <Shimmer />
+          </div>
         </div>
       </div>
-    </div>    </>
+    </>
   ) : (
     <div className="h-flex-center">
       <div className="mainContainer">
@@ -78,6 +95,12 @@ export default function Body() {
             </div> */}
 
         <div className="restaurant-list">
+          <div>
+            <button className="button" onClick={() => fetchUserLocationRestaurants(dispatch)}>
+              Get current location
+            </button>
+            Currently set Location: <b>{currentCity[0].toUpperCase()+currentCity.slice(1)}</b>
+          </div>
           {restaurantCardData.map((restaurantCard) => {
             if (restaurantCard.card.card.id == "whats_on_your_mind")
               return (

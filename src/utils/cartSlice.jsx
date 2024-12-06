@@ -10,17 +10,8 @@ const cartSlice=createSlice({
         rname:'',
         r_id:0,
         totalBill:0,
-        location:{lat:null,long:null}
-
     },
     reducers:{
-        setLocation:((state,action)=>{
-            const { latitude, longitude } = action.payload;
-            //like normal react use state we should not mutate the original state we should return from reducer fn new state or if we mutate the old state aso it was working
-            state.location.lat=latitude
-            state.location.long=longitude
-   
-        }),
         addItem: (state,action)=>{
             // let sum=0
             if (state.items.length==0 || state.rname==action.payload.rname){
@@ -88,4 +79,4 @@ const cartSlice=createSlice({
 })
 
 export default cartSlice.reducer
-export const {setLocation,addItem,incrementItem,decrementItem,clearCart,conflictResolve,updateBill} =cartSlice.actions
+export const {addItem,incrementItem,decrementItem,clearCart,conflictResolve,updateBill} =cartSlice.actions
