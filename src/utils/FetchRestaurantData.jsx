@@ -1,6 +1,6 @@
 import { swiggyRestaurants } from "../constant";
 import { setLocation } from "./locationSlice";
-import { setRestaurants } from "./restaurantsSlice";
+import { setRestaurants,addRestaurants } from "./restaurantsSlice";
 import axios from "axios";
 
 export const fetchRestaurantData = async (dispatch, coordinates) => {
@@ -108,12 +108,31 @@ export const fetchUserLocationRestaurants = (dispatch) => {
   getLocationAndFetchData();
 };
 
+export const fetchMoreRestaurants = async (
+  dispatch,
+  restaurantsLength,
+  location
+) => {
+  const url = "http://localhost:1234/api/fetchMoreRestaurants";
+  const postBody = {
+    lat: location.latitude,
+    lng: location.longitude,
+    restaurantsLength: restaurantsLength,
+  };
+  // console.log(postBody);
+  try {
+    const response = await axios.post(url, postBody);
+    const data = response.data;
+    // console.log(data)
+    dispatch(addRestaurants(data));
+  } catch (error) {
+    console.error("Error fetching more restaurant data:", error);
+  }
+};
 export const fetchInitialRestaurantData = (dispatch) => {
   const defaultCoordinates = {
     latitude: 12.9352,
     longitude: 77.6245,
-    city: "Koramangala, Bangalore",
   };
-  dispatch(setLocation(defaultCoordinates));
   fetchRestaurantData(dispatch, defaultCoordinates);
 };

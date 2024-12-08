@@ -49,7 +49,7 @@ const RestaurantCard = ({ restaurant }) => {
   );
 };
 
-const RestaurnatCardShimmer = () => {
+const RestaurantCardShimmer = () => {
   return (
     <div
       className="restaurant-card restaurant-card-grid "
@@ -87,9 +87,9 @@ const RestaurantListing = ({ restaurantData }) => {
         {restaurantsList?.map((restaurant, index) => (
           <RestaurantCard key={index} restaurant={restaurant} />
         ))}
-        <RestaurnatCardShimmer />
-        <RestaurnatCardShimmer />
-        <RestaurnatCardShimmer />
+        <RestaurantCardShimmer />
+        <RestaurantCardShimmer />
+        <RestaurantCardShimmer />
       </div>
     </div>
   );
@@ -101,7 +101,7 @@ export const RestaurantListingSkeleton = () => {
       <h3>Restaurants with online food delivery</h3>
       <div className="restaurants-grid">
         {Array(10).fill(0)?.map((val, index) => (
-          <RestaurnatCardShimmer key={index}  />
+          <RestaurantCardShimmer key={index}  />
         ))}
       </div>
     </div>

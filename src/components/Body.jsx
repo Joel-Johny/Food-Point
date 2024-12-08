@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import {
   fetchInitialRestaurantData,
   fetchUserLocationRestaurants,
+  fetchMoreRestaurants,
 } from "../utils/FetchRestaurantData";
 import useOnline from "../utils/useOnline";
 import DishItems from "./DishItems/DishItems";
@@ -48,13 +49,58 @@ export default function Body() {
   const restaurantCardData = useSelector((store) => {
     return store.restaurants.items;
   });
-  const currentCity = useSelector((store) => {
-    return store.location.city;
+  // console.log(restaurantCardData)
+  const restaurantsLengthRef = React.useRef();
+  useEffect(() => {
+    restaurantsLengthRef.current =
+      restaurantCardData[
+        restaurantCardData.length - 1
+      ]?.card?.card?.restaurants.length;
+  }, [restaurantCardData]);
+
+  const location = useSelector((store) => {
+    return store.location;
   });
 
+  const currentCity = location.city;
+
+  const locationRef = React.useRef();
   useEffect(() => {
+    locationRef.current = location;
+  }, [location]);
+  const handleScroll = () => {
+    // console.log(restaurantsLength);
+    const scrollPosition = window.scrollY + window.innerHeight; // Current scroll position
+    const scrollHeight = document.body.scrollHeight; // Total scrollable height of the document
+    if (scrollPosition >= scrollHeight - 10) {
+      // Threshold of 10px to account for precision errors
+      // console.log(location);
+
+      // console.log(locationRef.current, restaurantsLengthRef.current);
+      loadMoreRestaurants();
+    }
+  };
+  function loadMoreRestaurants() {
+    fetchMoreRestaurants(
+      dispatch,
+      restaurantsLengthRef.current,
+      locationRef.current
+    );
+  }
+  function debounce(func, delay) {
+    let timer;
+    return function () {
+      clearTimeout(timer);
+      timer = setTimeout(func, delay);
+    };
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", debounce(handleScroll, 50));
     if (restaurantCardData !== undefined && restaurantCardData.length === 0)
       fetchInitialRestaurantData(dispatch);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
   const online = useOnline();
   if (!online)
@@ -96,10 +142,14 @@ export default function Body() {
 
         <div className="restaurant-list">
           <div>
-            <button className="button" onClick={() => fetchUserLocationRestaurants(dispatch)}>
+            <button
+              className="button"
+              onClick={() => fetchUserLocationRestaurants(dispatch)}
+            >
               Get current location
             </button>
-            Currently set Location: <b>{currentCity[0].toUpperCase()+currentCity.slice(1)}</b>
+            Currently set Location:{" "}
+            <b>{currentCity[0].toUpperCase() + currentCity.slice(1)}</b>
           </div>
           {restaurantCardData.map((restaurantCard) => {
             if (restaurantCard.card.card.id == "whats_on_your_mind")
