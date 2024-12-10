@@ -3,6 +3,7 @@ import "./RestaurantListing.css";
 import { imageUrl } from "../../constant";
 import StarIcon from "@mui/icons-material/Star";
 import Skeleton from "react-loading-skeleton";
+import { Link } from "react-router-dom";
 
 const RestaurantCard = ({ restaurant }) => {
   return (
@@ -51,9 +52,7 @@ const RestaurantCard = ({ restaurant }) => {
 
 const RestaurantCardShimmer = () => {
   return (
-    <div
-      className="restaurant-card restaurant-card-grid "
-    >
+    <div className="restaurant-card restaurant-card-grid ">
       <div>
         <Skeleton className="rest-img" />
       </div>
@@ -84,9 +83,13 @@ const RestaurantListing = ({ restaurantData }) => {
     <div>
       <h3>{header ? header : "Restaurants with online food delivery "}</h3>
       <div className="restaurants-grid">
-        {restaurantsList?.map((restaurant, index) => (
-          <RestaurantCard key={index} restaurant={restaurant} />
-        ))}
+        {restaurantsList?.map((restaurant, index) => {
+          return (
+          <Link to={`/restaurant/${restaurant.info.id}`} key={index}>
+            <RestaurantCard key={index} restaurant={restaurant} />
+          </Link>
+          );
+        })}
         <RestaurantCardShimmer />
         <RestaurantCardShimmer />
         <RestaurantCardShimmer />
@@ -100,11 +103,13 @@ export const RestaurantListingSkeleton = () => {
     <div>
       <h3>Restaurants with online food delivery</h3>
       <div className="restaurants-grid">
-        {Array(10).fill(0)?.map((val, index) => (
-          <RestaurantCardShimmer key={index}  />
-        ))}
+        {Array(10)
+          .fill(0)
+          ?.map((val, index) => (
+            <RestaurantCardShimmer key={index} />
+          ))}
       </div>
     </div>
   );
-}
+};
 export default RestaurantListing;
