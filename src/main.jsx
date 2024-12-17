@@ -5,7 +5,7 @@ import Header from "./components/Header/Header";
 import Body from "./components/Body";
 import About from "./components/About";
 import Error from "./components/Error";
-import RestaurantMenu from "./components/RestaurantMenu";
+import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu";
 // import AccordianDemo from './components/AccordianDemo'
 import { Provider } from "react-redux";
 import store from "./utils/store";

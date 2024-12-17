@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { url } from "../constant";
+import { url } from "../../constant";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
-import useRestaurants from "../utils/useRestaurants";
+import useRestaurants from "../../utils/useRestaurants";
 import RestaurantItem from "./RestaurantItem";
 import RestConflict from "./RestConflict";
 import { useSelector } from "react-redux";
@@ -73,8 +73,6 @@ const RestaurantMenu = () => {
             <h2>{rDetails.costForTwoMessage}</h2>
           </div>
         </div>
-        <h1 className="recommend">{rDetails.name} Recommended Dishes </h1>
-
         <div className="search-container">
           {show ? (
             <input

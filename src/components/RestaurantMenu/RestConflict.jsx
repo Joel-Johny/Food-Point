@@ -1,5 +1,5 @@
 import React from 'react'
-import { clearCart,conflictResolve } from "../utils/cartSlice";
+import { clearCart,conflictResolve } from "../../utils/cartSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';

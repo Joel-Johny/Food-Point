@@ -1,6 +1,6 @@
 import React from "react";
-import { url } from "../constant";
-import { addItem, incrementItem, decrementItem } from "../utils/cartSlice";
+import { url } from "../../constant";
+import { addItem, incrementItem, decrementItem } from "../../utils/cartSlice";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 const RestaurantItem = ({ details, rname, r_id }) => {
