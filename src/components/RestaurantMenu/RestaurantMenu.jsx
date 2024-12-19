@@ -57,7 +57,9 @@ const RestaurantMenu = () => {
   // })
 
   return Object.keys(menuDetails).length === 0 ? (
-    <MenuShimmer />
+    <div className={`restaurant ${conflict ? "opacity" : ""}`}>
+      <MenuShimmer />
+    </div>
   ) : (
     <>
       <div className={`restaurant ${conflict ? "opacity" : ""}`}>

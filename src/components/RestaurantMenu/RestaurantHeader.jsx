@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import "./RestHeader.css";
+import Skeleton from "react-loading-skeleton";
 import { useThemeContext } from "../../utils/ThemeContext";
 const RestaurantHeader = ({ rDetails }) => {
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
@@ -30,4 +31,34 @@ const RestaurantHeader = ({ rDetails }) => {
   );
 };
 
+export const RestaurantHeaderShimmer = () => {
+  const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
+
+  return (
+    <div className="rest-header">
+      <h2>
+        <Skeleton width={200} />
+      </h2>
+      <div className="rest-details">
+        <div className="sla">
+          <Skeleton width={100} />
+          <Skeleton width={100} />
+          <Skeleton width={100} />
+        </div>
+        <div className="cuisines">
+          <Skeleton width={150} />
+        </div>
+        <div className="outlet-location">
+          <Skeleton width={30} />
+          <Skeleton width={150} />
+        </div>
+        <div className="outlet-location">
+          <Skeleton width={30} />
+          <Skeleton width={150} />
+        </div>
+        <div className={`hbar ${theme}`}></div>
+      </div>
+    </div>
+  );
+};
 export default RestaurantHeader;
