@@ -63,6 +63,10 @@ export const RestaurantHeaderShimmer = () => {
           <Skeleton width={30} />
           <Skeleton width={150} />
         </div>
+        <div className="outlet-location">
+          <Skeleton width={30} />
+          <Skeleton width={150} />
+        </div>
         <div className={`hbar ${theme}`}></div>
       </div>
     </div>

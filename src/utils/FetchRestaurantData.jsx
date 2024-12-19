@@ -4,11 +4,10 @@ import { setRestaurants,addRestaurants } from "./restaurantsSlice";
 import axios from "axios";
 
 export const fetchRestaurantData = async (dispatch, coordinates) => {
-  const url = `${swiggyRestaurants}lat=${coordinates.latitude}&lng=${coordinates.longitude}`;
+  const url = "https://food-point-backend.onrender.com/api/rlist";
+  const postBody = { latitude: coordinates.latitude, longitude: coordinates.longitude };
   try {
-    // const response = await fetch(url);
-    // const json = await response.json();
-    const response = await axios.get(url);
+    const response = await axios.post(url, postBody);
     const json = await response.data;
     const allCardData = json?.data?.cards;
     const citySlug = allCardData[allCardData.length - 1].card.card.citySlug;
@@ -113,7 +112,7 @@ export const fetchMoreRestaurants = async (
   restaurantsLength,
   location
 ) => {
-  const url = "http://localhost:1234/api/fetchMoreRestaurants";
+  const url = "https://food-point-backend.onrender.com/api/fetchMoreRestaurants";
   const postBody = {
     lat: location.latitude,
     lng: location.longitude,

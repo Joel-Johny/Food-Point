@@ -14,10 +14,11 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 0.75rem;
+    cursor: pointer;
   }
 
   .arrow{
-    width:11px
+    width:21px;
   }
   
   .item-info {
