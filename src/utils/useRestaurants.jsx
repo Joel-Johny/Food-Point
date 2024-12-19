@@ -24,10 +24,12 @@ const useRestaurant = (resId) => {
     };
 
     const data = await fetch(
-      `https://food-point-backend.onrender.com/api/menu`,
+      // `https://food-point-backend.onrender.com/api/menu`,
+      `http://localhost:1234/api/menu`,
       options
     );
     const json = await data.json();
+    // The last card is grouped card which will have all the dishes of the restaurant
     const length = json.data.cards.length - 1;
     const restaurantMenu =
       json.data.cards[length].groupedCard.cardGroupMap.REGULAR.cards;
@@ -36,6 +38,7 @@ const useRestaurant = (resId) => {
       return card?.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
     })
     const restaurantDetails=restaurantDetailsArray[0].card.card.info;
+    console.log(json,restaurantDetails);
     setRMenu(restaurantMenu);
     setfilteredMenu(restaurantMenu);
     setRDetails(restaurantDetails);

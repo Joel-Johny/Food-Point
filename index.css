@@ -150,23 +150,8 @@ body {
 }
 
 /*----------------------------- Restaurant Detail and Menu ----------------------------- */
-.restaurant {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 1.75rem;
-}
 
-.rest-details {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0.2rem;
-  background-color: rgb(99, 99, 98);
-  width: 100%;
-  color: white;
-}
+
 
 .r-image {
   height: 200px;
@@ -178,13 +163,6 @@ body {
   align-items: center;
 }
 
-.rest-menu {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
 
 .rest-item {
   width: 50%;

@@ -3,16 +3,16 @@ import { url } from "../../constant";
 import { useParams } from "react-router-dom";
 import MenuShimmer from "./MenuShimmer";
 import useRestaurants from "../../utils/useRestaurants";
-import RestaurantItem from "./RestaurantItem";
+import RestaurantBody from "./RestaurantBody";
+import RestaurantHeader from "./RestaurantHeader";
 import RestConflict from "./RestConflict";
 import { useSelector } from "react-redux";
-
+import "./RestMenu.css";
 const RestaurantMenu = () => {
   const param = useParams();
   const [rDetails, menuDetails, filteredMenu, setfilteredMenu] = useRestaurants(
     param.id
   );
-  console.log(rDetails, menuDetails, filteredMenu);
   const [show, setShow] = React.useState(false);
   const [searchTxt, setSearchTxt] = useState("");
   const conflict = useSelector((store) => {
@@ -61,7 +61,7 @@ const RestaurantMenu = () => {
   ) : (
     <>
       <div className={`restaurant ${conflict ? "opacity" : ""}`}>
-        <div className="rest-details">
+        {/* <div className="rest-details">
           <img src={url + rDetails.cloudinaryImageId} className="r-image" />
           <div className="r-info">
             <div className="label">
@@ -72,8 +72,8 @@ const RestaurantMenu = () => {
             <h2>{rDetails.city}</h2>
             <h2>{rDetails.costForTwoMessage}</h2>
           </div>
-        </div>
-        <div className="search-container">
+        </div> */}
+        {/* <div className="search-container">
           {show ? (
             <input
               type="text"
@@ -89,16 +89,18 @@ const RestaurantMenu = () => {
               style={{ height: "70px", width: "70px", cursor: "pointer" }}
             />
           )}
-        </div>
+        </div> */}
 
-        {/* <div className="rest-menu">
+        <div className="rest-menu">
+          <RestaurantHeader rDetails={rDetails} />
           {filteredMenu.length > 0 ? (
-            dishes
+            <RestaurantBody />
           ) : (
             <h1>No dishes matched your query! Try again</h1>
           )}
-        </div> */}
+        </div>
       </div>
+
       <div className="rest-menu">
         {conflict && <RestConflict rname={rDetails.name} r_id={rDetails.id} />}
       </div>
