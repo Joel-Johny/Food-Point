@@ -1,0 +1,19 @@
+.rest-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .category-partition.light {
+    background-color:rgba(0, 0, 0, 0.2); 
+    height: 6px;
+    border-radius: 3px;
+  }
+  
+  .category-partition.dark {
+    background-color:rgba(255, 255, 255, 0.7); 
+    height: 6px;
+    border-radius: 3px;
+  }

@@ -1,11 +1,9 @@
 import React from "react";
 import { url } from "../../constant";
 import { addItem, incrementItem, decrementItem } from "../../utils/cartSlice";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-const RestaurantItem = ({ details, rname, r_id }) => {
-  console.log(rDetails, menuDetails, filteredMenu);
-
+import { useDispatch, useSelector } from "react-redux";
+import "./RestItem.css";
+const RestaurantItem = ({ details }) => {
   const { name, isVeg, price, defaultPrice, imageId, description } = details;
   const nonveg =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
@@ -24,8 +22,8 @@ const RestaurantItem = ({ details, rname, r_id }) => {
       addItem({
         ...details,
         count: 1,
-        rname,
-        r_id: r_id,
+        // rname,
+        // r_id: r_id,
       })
     );
   };
@@ -95,4 +93,40 @@ const RestaurantItem = ({ details, rname, r_id }) => {
   );
 };
 
+export const RestaurantAccordian = ({ details }) => {
+  const [show, setShow] = React.useState(false);
+  const title = details?.title;
+  const dishes = details?.itemCards;
+  return (
+    <>
+      <div className="rest-item">
+        <div>
+          <h4>{`${title} (${dishes.length})`}</h4>
+        </div>
+        {show ? (
+          <img
+            src="/up.png"
+            alt="image unavailable"
+            className="arrow"
+            onClick={() => setShow((prev) => !prev)}
+          />
+        ) : (
+          <img
+            src="/down.png"
+            alt="image unavailable"
+            className="arrow"
+            onClick={() => setShow((prev) => !prev)}
+          />
+        )}
+      </div>
+      {show && (
+        <div>
+          {dishes.map((dish) => (
+            <RestaurantItem details={dish?.card?.info} />
+          ))}
+        </div>
+      )}
+    </>
+  );
+};
 export default RestaurantItem;

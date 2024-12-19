@@ -9,5 +9,6 @@
   flex-direction: column;
   max-width: 768px;
   width: 100%; /* Add this line */
+  gap: 10px;
 
 }

@@ -1,0 +1,92 @@
+.r-image {
+    height: 200px;
+    width: 280px;
+  }
+  .label {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  
+  .rest-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+  }
+
+  .arrow{
+    width:11px
+  }
+  
+  .item-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+  }
+  
+  .item-img {
+    width: 150px;
+    height: 100px;
+    border-radius: 10px;
+  }
+  .add-dish {
+    width: 85px;
+    height: 27px;
+    background-color: rgb(222, 211, 148);
+    border: none;
+    margin-top: 0.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 8px;
+  }
+  .inc-dec {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100%;
+  }
+  .symbol {
+    height: 14px;
+    width: 14px;
+    cursor: pointer;
+  }
+  .recommend {
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    width: 100%;
+    text-align: center;
+  }
+  input::placeholder {
+    text-align: center;
+  }
+  .menu-search {
+    margin: auto;
+    height: 35px;
+    width: 270px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .fetchError {
+    text-align: center;
+    margin: auto;
+    color: red;
+    margin-top: 12vh;
+  }
+  .sorry {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .sorry-img {
+    height: 500px;
+  }
+  

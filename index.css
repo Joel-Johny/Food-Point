@@ -152,7 +152,6 @@ body {
 /*----------------------------- Restaurant Detail and Menu ----------------------------- */
 
 
-
 .r-image {
   height: 200px;
   width: 280px;
@@ -165,13 +164,14 @@ body {
 
 
 .rest-item {
-  width: 50%;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
   align-items: center;
-  padding: 2rem;
-  border-bottom: 1px solid grey;
+  justify-content: space-between;
+  padding: 0 0.75rem;
+}
+
+.arrow{
+  width:11px
 }
 
 .item-info {
@@ -243,6 +243,7 @@ input::placeholder {
 .sorry-img {
   height: 500px;
 }
+
 
 /*----------------------------- menushimmer ----------------------------- */
 
@@ -422,23 +423,23 @@ input::placeholder {
 /* media query to handle menu items in restaurant */
 @media only screen and (max-width: 1400px) {
   .rest-item {
-    width: 60%;
+    /* width: 60%; */
   }
 }
 @media only screen and (max-width: 1200px) {
   .rest-item {
-    width: 80%;
+    /* width: 80%; */
   }
 }
 
 @media only screen and (max-width: 800px) {
   .rest-item {
-    width: 95%;
+    /* width: 95%; */
   }
 }
 @media only screen and (max-width: 730px) {
   .rest-item {
-    width: 100%;
+    /* width: 100%; */
   }
 
   .r-image {
@@ -464,7 +465,7 @@ input::placeholder {
 
 @media only screen and (max-width: 500px) {
   .rest-item {
-    width: 95%;
+    /* width: 95%; */
   }
 
   .accord {

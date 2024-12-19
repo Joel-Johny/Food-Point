@@ -96,7 +96,7 @@ const RestaurantMenu = () => {
         <div className="rest-menu">
           <RestaurantHeader rDetails={rDetails} />
           {filteredMenu.length > 0 ? (
-            <RestaurantBody />
+            <RestaurantBody filteredMenu={filteredMenu} menuDetails={menuDetails} setfilteredMenu={setfilteredMenu} />
           ) : (
             <h1>No dishes matched your query! Try again</h1>
           )}

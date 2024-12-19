@@ -31,16 +31,19 @@ const useRestaurant = (resId) => {
     const json = await data.json();
     // The last card is grouped card which will have all the dishes of the restaurant
     const length = json.data.cards.length - 1;
-    const restaurantMenu =
+    const fullRestaurantMenu =
       json.data.cards[length].groupedCard.cardGroupMap.REGULAR.cards;
+      const filteredRestaurantMenu=fullRestaurantMenu.filter((card)=>{
+        return card?.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" || card?.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory";
+      })
     // console.log("FM NOW")
     const restaurantDetailsArray = json.data.cards.filter((card) => {
       return card?.card?.card["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
     })
     const restaurantDetails=restaurantDetailsArray[0].card.card.info;
-    console.log(json,restaurantDetails);
-    setRMenu(restaurantMenu);
-    setfilteredMenu(restaurantMenu);
+    // console.log(json,restaurantDetails);
+    setRMenu(filteredRestaurantMenu);
+    setfilteredMenu(filteredRestaurantMenu);
     setRDetails(restaurantDetails);
   };
   return [rDetails, rMenu, filteredMenu, setfilteredMenu];
