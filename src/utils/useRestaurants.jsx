@@ -24,8 +24,8 @@ const useRestaurant = (resId) => {
     };
 
     const data = await fetch(
-      // `https://food-point-backend.onrender.com/api/menu`,
-      `http://localhost:1234/api/menu`,
+      `https://food-point-backend.onrender.com/api/menu`,
+      // `http://localhost:1234/api/menu`,
       options
     );
     const json = await data.json();

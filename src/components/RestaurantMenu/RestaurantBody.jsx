@@ -17,6 +17,7 @@ const NestedRestaurantCategory = ({ menuItem }) => {
   const categories = menuItem?.card?.card?.categories;
   return (
     <>
+      <h4 style={{ marginLeft: "12px" }}>{menuItem?.card?.card?.title}</h4>
       {categories.map((category, index) => {
         return <RestaurantAccordian details={category} key={index}/>;
       })}
