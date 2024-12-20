@@ -6,6 +6,7 @@ import { useThemeContext } from "../../utils/ThemeContext";
 import "./RestItem.css";
 const RestaurantItem = ({ details, lastDish }) => {
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
+  console.log(details)
   const { name, isVeg, price, defaultPrice, imageId, description } = details;
   const nonveg =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
@@ -49,13 +50,23 @@ const RestaurantItem = ({ details, lastDish }) => {
       <div className="rest-item">
         <div className="item-info">
           {isVeg ? (
-            <img src={veg} height={"25px"} width={"25px"} />
+            <img src={veg} width={"16px"} />
           ) : (
-            <img src={nonveg} height={"25px"} width={"25px"} />
+            <img src={nonveg} width={"16px"} />
           )}
-          <h2>{name}</h2>
-          <h3>₹{price ? price / 100 : defaultPrice / 100} </h3>
-          <p>{description}</p>
+          <h4>{name}</h4>
+          <h4>₹{price ? price / 100 : defaultPrice / 100} </h4>
+          <p className="item-description">{description}</p>
+        </div>
+
+        <div className="item-img-container">
+          {imageId && (
+            <img
+              src={url + imageId}
+              alt="image unavailable"
+              className="item-img"
+            />
+          )}
 
           <div className="add-dish">
             {dish_count == 0 ? (
@@ -74,7 +85,7 @@ const RestaurantItem = ({ details, lastDish }) => {
                 <img
                   className="symbol"
                   onClick={decrement}
-                  src="https://icon-library.com/images/minus-icon-png/minus-icon-png-14.jpg"
+                  src="/minus.jpg"
                 />
                 {dish_count}
                 <img
@@ -86,18 +97,8 @@ const RestaurantItem = ({ details, lastDish }) => {
             )}
           </div>
         </div>
-
-        <div>
-          {imageId && (
-            <img
-              src={url + imageId}
-              alt="image unavailable"
-              className="item-img"
-            />
-          )}
-        </div>
       </div>
-      {!lastDish && <div className={`hbar ${theme}`}></div>}
+      {!lastDish && <div className={`rest-dish-bar hbar ${theme}`}></div>}
     </>
   );
 };
@@ -109,7 +110,7 @@ export const RestaurantAccordian = ({ details, lastCategory }) => {
   const dishes = details?.itemCards;
   return (
     <>
-      <div className="rest-item" onClick={() => setShow((prev) => !prev)}>
+      <div className="accordian-header" onClick={() => setShow((prev) => !prev)}>
         <div>
           <h4>{`${title} (${dishes.length})`}</h4>
         </div>
