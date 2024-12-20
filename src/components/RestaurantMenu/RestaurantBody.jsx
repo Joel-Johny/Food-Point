@@ -6,7 +6,7 @@ const RestaurantCategory = ({ menuItem }) => {
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
   return (
     <>
-      <RestaurantAccordian details={menuItem?.card?.card} />
+      <RestaurantAccordian details={menuItem?.card?.card} lastCategory={true} />
       <div className={`category-partition ${theme}`}></div>
     </>
   );
@@ -19,7 +19,7 @@ const NestedRestaurantCategory = ({ menuItem }) => {
     <>
       <h4 style={{ marginLeft: "12px" }}>{menuItem?.card?.card?.title}</h4>
       {categories.map((category, index) => {
-        return <RestaurantAccordian details={category} key={index}/>;
+        return <RestaurantAccordian details={category} key={index} lastCategory={categories.length - 1 == index}/>;
       })}
       <div className={`category-partition ${theme}`}></div>
     </>

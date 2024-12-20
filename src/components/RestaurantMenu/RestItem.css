@@ -17,10 +17,6 @@
     cursor: pointer;
   }
 
-  .arrow{
-    width:21px;
-  }
-  
   .item-info {
     display: flex;
     flex-direction: column;

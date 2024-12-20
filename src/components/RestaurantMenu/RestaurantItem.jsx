@@ -102,8 +102,9 @@ const RestaurantItem = ({ details, lastDish }) => {
   );
 };
 
-export const RestaurantAccordian = ({ details }) => {
+export const RestaurantAccordian = ({ details, lastCategory }) => {
   const [show, setShow] = React.useState(false);
+  const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
   const title = details?.title;
   const dishes = details?.itemCards;
   return (
@@ -112,7 +113,7 @@ export const RestaurantAccordian = ({ details }) => {
         <div>
           <h4>{`${title} (${dishes.length})`}</h4>
         </div>
-        {show ? <h3>↑</h3> :<h3>↓</h3>}
+        {show ? <h3>↑</h3> : <h3>↓</h3>}
       </div>
       {show && (
         <div>
@@ -124,6 +125,7 @@ export const RestaurantAccordian = ({ details }) => {
           ))}
         </div>
       )}
+      {!lastCategory && <div className={`hbar ${theme}`}></div>}
     </>
   );
 };
