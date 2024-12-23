@@ -86,14 +86,20 @@ const RestaurantListing = ({ restaurantData }) => {
       <div className="restaurants-grid">
         {restaurantsList?.map((restaurant, index) => {
           return (
-          <Link to={`/restaurant/${restaurant.info.id}`} key={index}>
-            <RestaurantCard key={index} restaurant={restaurant} />
-          </Link>
+            <Link to={`/restaurant/${restaurant.info.id}`} key={index}>
+              <RestaurantCard key={index} restaurant={restaurant} />
+            </Link>
           );
         })}
-        <RestaurantCardShimmer />
-        <RestaurantCardShimmer />
-        <RestaurantCardShimmer />
+        <Link to="#">
+          <RestaurantCardShimmer />
+        </Link>
+        <Link to="#">
+          <RestaurantCardShimmer />
+        </Link>
+        <Link to="#">
+          <RestaurantCardShimmer />
+        </Link>
       </div>
     </div>
   );
@@ -107,7 +113,9 @@ export const RestaurantListingSkeleton = () => {
         {Array(10)
           .fill(0)
           ?.map((val, index) => (
-            <RestaurantCardShimmer key={index} />
+            <Link to="#">
+              <RestaurantCardShimmer key={index} />
+            </Link>
           ))}
       </div>
     </div>

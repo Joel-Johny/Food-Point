@@ -133,8 +133,9 @@ export const fetchMoreRestaurants = async (
 };
 export const fetchInitialRestaurantData = (dispatch) => {
   const defaultCoordinates = {
-    latitude: 12.9352,
-    longitude: 77.6245,
+    latitude: 28.7041,
+    longitude: 77.1025,
   };
+
   fetchRestaurantData(dispatch, defaultCoordinates);
 };
