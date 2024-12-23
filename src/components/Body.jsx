@@ -16,6 +16,7 @@ export default function Body() {
   // const [show, setShow] = React.useState(false);
   // const [restaurantCardData] = useFetchData(); //SEE THIS VERY IMP
   const dispatch = useDispatch();
+  const [loading, setLoading] = React.useState(false);
 
   // ------Removing search input will make seperate component to search for restaurants-------
 
@@ -141,15 +142,21 @@ export default function Body() {
             </div> */}
 
         <div className="restaurant-list">
-          <div>
+          <div className="location-button">
+            <p>
+              Location :
+              <b>{" " + currentCity[0].toUpperCase() + currentCity.slice(1)}</b>
+            </p>
+
             <button
               className="button"
-              onClick={() => fetchUserLocationRestaurants(dispatch)}
+              onClick={() => {
+                setLoading(true);
+                fetchUserLocationRestaurants(dispatch, setLoading);
+              }}
             >
-              Get current location
+              {loading ? "Loading..." : "Get current location"}
             </button>
-            Currently set Location:{" "}
-            <b>{currentCity[0].toUpperCase() + currentCity.slice(1)}</b>
           </div>
           {restaurantCardData.map((restaurantCard) => {
             if (restaurantCard.card.card.id == "whats_on_your_mind")

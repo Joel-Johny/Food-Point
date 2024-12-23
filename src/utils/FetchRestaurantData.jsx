@@ -3,13 +3,16 @@ import { setLocation } from "./locationSlice";
 import { setRestaurants,addRestaurants } from "./restaurantsSlice";
 import axios from "axios";
 
-export const fetchRestaurantData = async (dispatch, coordinates) => {
+export const fetchRestaurantData = async (dispatch, coordinates,setLoading) => {
   const url = "https://food-point-backend.onrender.com/api/rlist";
   const postBody = { latitude: coordinates.latitude, longitude: coordinates.longitude };
   try {
     const response = await axios.post(url, postBody);
     const json = await response.data;
     const allCardData = json?.data?.cards;
+    // 2 ways this block of code will run 1 default fetch and other is user location rest fetch when user loc fetch at that time user will pass loading state setter fn defalt case no setter fn hence loading will not be set and will be undefined hence if check is there
+    if(setLoading)
+      setLoading(false);
     const citySlug = allCardData[allCardData.length - 1].card.card.citySlug;
     coordinates.city = citySlug;
     if (!allCardData) {
@@ -73,7 +76,7 @@ export const fetchRestaurantData = async (dispatch, coordinates) => {
   }
 };
 
-export const fetchUserLocationRestaurants = (dispatch) => {
+export const fetchUserLocationRestaurants = (dispatch,setLoading) => {
   // const [restaurantCardData, setRestaurantCardData] = React.useState([]);
 
   const getLocationAndFetchData = () => {
@@ -84,7 +87,7 @@ export const fetchUserLocationRestaurants = (dispatch) => {
     };
 
     navigator.geolocation.getCurrentPosition(
-      (pos) => handleLocationSuccess(pos),
+      (pos) => handleLocationSuccess(pos,setLoading),
       () => handleLocationError(),
       options
     );
@@ -95,9 +98,9 @@ export const fetchUserLocationRestaurants = (dispatch) => {
       latitude: pos.coords.latitude,
       longitude: pos.coords.longitude,
     };
-    console.log(coordinates);
+    // console.log(coordinates);
 
-    fetchRestaurantData(dispatch, coordinates);
+    fetchRestaurantData(dispatch, coordinates,setLoading);
   };
 
   const handleLocationError = () => {
