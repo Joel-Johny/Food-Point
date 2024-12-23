@@ -2,11 +2,12 @@ import React from 'react'
 import { clearCart,conflictResolve } from "../../utils/cartSlice";
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
+import { useThemeContext } from "../../utils/ThemeContext";
 const RestConflict = ({rname}) => {
 const dispatch=useDispatch()
 const navigate=useNavigate()
+  const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
+
 
 const [current_rname,id]=useSelector((store)=>{
     return [store.cart.rname,store.cart.r_id]
@@ -27,8 +28,8 @@ const changeRestaurant=(id)=>{
 
 }
   return (
-    <div className="conflict" >
-        <h2>Replace items already in cart?</h2>
+    <div className={`conflict ${theme}`} >
+        <h3>Replace items already in cart?</h3>
         <p>Your cart contains dishes from <strong style={{cursor:'pointer'} } onClick={()=>{changeRestaurant(id)}}>{current_rname}</strong> .Do you want to discard the selection and add dishes from <strong>{rname} </strong></p>
         <div className="decision">
             <div className="no" onClick={handleNo}>NO</div>

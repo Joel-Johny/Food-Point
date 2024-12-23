@@ -108,7 +108,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      <div className="rest-menu">
+      <div className="h-flex-center">
         {conflict && <RestConflict rname={rDetails.name} r_id={rDetails.id} />}
       </div>
     </>
