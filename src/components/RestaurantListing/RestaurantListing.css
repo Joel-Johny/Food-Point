@@ -42,7 +42,9 @@
   height: 230px;
   object-fit: cover;
 }
-
+.rest-listing-link{
+  width: 100%;
+}
 .restaurants-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
@@ -90,11 +92,16 @@
   .rest-cuisines {
     font-size: 11px;
   }
-
+  .rest-listing-link{
+    width: auto
+  }
   .rest-name {
     font-size: 0.75rem;
   }
 
+  .restaurants-listing-container>h3{
+    font-size: 15px;
+  }
   .restaurant-card-grid {
     flex-direction: column;
     width: 100%;

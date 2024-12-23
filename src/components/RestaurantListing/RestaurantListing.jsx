@@ -85,12 +85,12 @@ const RestaurantListing = ({ restaurantData }) => {
   const header = restaurantData?.card?.card?.title;
   const restaurantsList = restaurantData?.card?.card?.restaurants;
   return (
-    <div>
+    <div className="restaurants-listing-container">
       <h3>{header ? header : "Restaurants with online food delivery "}</h3>
       <div className="restaurants-grid">
         {restaurantsList?.map((restaurant, index) => {
           return (
-            <Link to={`/restaurant/${restaurant.info.id}`} key={index}>
+            <Link to={`/restaurant/${restaurant.info.id}`} key={index} className="rest-listing-link">
               <RestaurantCard key={index} restaurant={restaurant} />
             </Link>
           );
