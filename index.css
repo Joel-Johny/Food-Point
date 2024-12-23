@@ -354,6 +354,7 @@ body {
   }
 }
 
+
 @media only screen and (max-width: 500px) {
   .rest-item {
     flex-direction: column;
@@ -362,8 +363,10 @@ body {
     align-items: flex-start !important;
   }
 
-  .rest-img-container{
-    display: none!important;
+
+  .rest-img-container>img{
+    width: 110px!important;
+    height: 130px!important;
   }
   .img-container {
     width: 100%;
@@ -402,5 +405,11 @@ body {
   .summary > p {
     width: 90%;
     text-align: center;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .rest-img-container{
+    display: none !important;
   }
 }
