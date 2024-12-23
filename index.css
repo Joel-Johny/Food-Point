@@ -361,7 +361,9 @@ body {
     align-items: flex-start !important;
   }
 
-
+  .rest-img-container-shimmer{
+    display: none!important;
+  }
   .rest-img-container>img{
     width: 110px!important;
     height: 130px!important;

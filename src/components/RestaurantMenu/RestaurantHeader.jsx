@@ -70,7 +70,7 @@ export const RestaurantHeaderShimmer = () => {
             <Skeleton height={20} width={120} />
           </div>
         </div>
-        <div className="rest-img-container">
+        <div className="rest-img-container-shimmer">
           <Skeleton width={200} height={170} className="rest-img" />
         </div>
       </div>
