@@ -98,6 +98,7 @@ const RestaurantMenu = () => {
           {filteredMenu.length > 0 ? (
             <RestaurantBody
               filteredMenu={filteredMenu}
+              rDetails={rDetails}
               menuDetails={menuDetails}
               setfilteredMenu={setfilteredMenu}
             />

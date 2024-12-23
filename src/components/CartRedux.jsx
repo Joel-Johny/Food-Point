@@ -22,7 +22,6 @@ const CartRedux=()=>{
     const {items,total,rname,r_id,totalBill}=useSelector((store)=>{
         return store.cart
     })
-
     const allCartItems=items.map((item,index)=>{
         return(
             <CartItem details={item} key={index}/>
@@ -33,8 +32,6 @@ const CartRedux=()=>{
         <>
         <div className={alert ? 'opacity' : 'crContainer'}>
             
-            <h3 className="recommend"> This is the cart component that uses the cart slice of the Redux Store</h3>
-
             <div className="rest-menu">
                 {(total>0)
                 ?(

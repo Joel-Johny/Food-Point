@@ -4,9 +4,8 @@ import { addItem, incrementItem, decrementItem } from "../../utils/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useThemeContext } from "../../utils/ThemeContext";
 import "./RestItem.css";
-const RestaurantItem = ({ details, lastDish }) => {
+const RestaurantItem = ({ details, lastDish , rDetails }) => {
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
-  console.log(details)
   const { name, isVeg, price, defaultPrice, imageId, description } = details;
   const nonveg =
     "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Non_veg_symbol.svg/2048px-Non_veg_symbol.svg.png";
@@ -25,8 +24,8 @@ const RestaurantItem = ({ details, lastDish }) => {
       addItem({
         ...details,
         count: 1,
-        // rname,
-        // r_id: r_id,
+        rname:rDetails.name,
+        r_id: rDetails.id,
       })
     );
   };
@@ -103,11 +102,12 @@ const RestaurantItem = ({ details, lastDish }) => {
   );
 };
 
-export const RestaurantAccordian = ({ details, lastCategory }) => {
+export const RestaurantAccordian = ({ details, lastCategory , rDetails}) => {
   const [show, setShow] = React.useState(false);
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
   const title = details?.title;
   const dishes = details?.itemCards;
+
   return (
     <>
       <div className="accordian-header" onClick={() => setShow((prev) => !prev)}>
@@ -122,6 +122,7 @@ export const RestaurantAccordian = ({ details, lastCategory }) => {
             <RestaurantItem
               details={dish?.card?.info}
               lastDish={dishes.length - 1 == index}
+              rDetails={rDetails}
             />
           ))}
         </div>
