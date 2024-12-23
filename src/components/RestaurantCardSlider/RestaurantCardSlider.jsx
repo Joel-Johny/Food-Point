@@ -19,7 +19,11 @@ const RestaurantCard = ({ restaurant }) => {
 
         <div className="rest-description">
           <div className="rest-name">
-            <label>{restaurant.info.name}</label>
+            <label>
+              {restaurant.info.name.length > 20
+                ? `${restaurant.info.name.slice(0, 18)}...`
+                : restaurant.info.name}
+            </label>
             <div>
               <label className="vh-flex-center">
                 {restaurant.info.avgRating}
