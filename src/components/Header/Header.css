@@ -75,6 +75,12 @@
   position: absolute;
 }
 
+.expand-nav-items.background-light {
+  box-shadow: 0 8px 5px 0 rgba(0, 0, 0, 0.3);
+}
+.expand-nav-items.background-dark {
+  box-shadow: 0 8px 5px 0 rgba(255, 255, 255, 0.3);
+}
 .background-light {
   background-color: white;
 }
