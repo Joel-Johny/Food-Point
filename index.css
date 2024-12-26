@@ -274,7 +274,7 @@ body {
   align-items: center;
   justify-content: center;
   background-color: rgb(252, 129, 24);
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   font-weight: bolder;
   color: white;
 }
@@ -362,7 +362,6 @@ body {
     width: 80%;
   }
   .rest-item {
-    flex-direction: column;
     padding: 0;
     gap: 0.5rem;
     align-items: flex-start !important;
@@ -372,12 +371,13 @@ body {
     display: none!important;
   }
   .rest-img-container>img{
-    width: 110px!important;
-    height: 130px!important;
+    width: 130px!important;
+    height: 130px !important;
   }
   .img-container {
     width: 100%;
   }
+
   .inc-dec {
     gap: 1.5rem;
   }
@@ -388,7 +388,8 @@ body {
     width: 50%;
   }
 
-  .item-img {
+ 
+  .item-description{
     display: none;
   }
 
