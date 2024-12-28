@@ -81,29 +81,42 @@ const RestaurantCardShimmer = () => {
     </div>
   );
 };
-const RestaurantListing = ({ restaurantData }) => {
-  const header = restaurantData?.card?.card?.title;
-  const restaurantsList = restaurantData?.card?.card?.restaurants;
+const RestaurantListing = ({ restaurantData, headerText, resList }) => {
+  const header = headerText ? headerText : restaurantData?.card?.card?.title;
+  const restaurantsList = resList
+    ? resList
+    : restaurantData?.card?.card?.restaurants;
+  // console.log(restaurantData);
   return (
     <div className="restaurants-listing-container">
       <h3>{header ? header : "Restaurants with online food delivery "}</h3>
       <div className="restaurants-grid">
         {restaurantsList?.map((restaurant, index) => {
           return (
-            <Link to={`/restaurant/${restaurant.info.id}`} key={index} className="rest-listing-link">
+            <Link
+              to={`/restaurant/${restaurant.info.id}`}
+              key={index}
+              className="rest-listing-link"
+            >
               <RestaurantCard key={index} restaurant={restaurant} />
             </Link>
           );
         })}
-        <Link to="#">
-          <RestaurantCardShimmer />
-        </Link>
-        <Link to="#">
-          <RestaurantCardShimmer />
-        </Link>
-        <Link to="#">
-          <RestaurantCardShimmer />
-        </Link>
+        {headerText ? (
+          <></>
+        ) : (
+          <>
+            <Link to="#">
+              <RestaurantCardShimmer />
+            </Link>
+            <Link to="#">
+              <RestaurantCardShimmer />
+            </Link>
+            <Link to="#">
+              <RestaurantCardShimmer />
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
@@ -112,13 +125,13 @@ const RestaurantListing = ({ restaurantData }) => {
 export const RestaurantListingSkeleton = () => {
   return (
     <div>
-      <h3>Restaurants with online food delivery</h3>
+      <h3>Restaurants with online food delivery </h3>
       <div className="restaurants-grid">
         {Array(10)
           .fill(0)
           ?.map((val, index) => (
-            <Link to="#">
-              <RestaurantCardShimmer key={index} />
+            <Link to="#" key={index}>
+              <RestaurantCardShimmer />
             </Link>
           ))}
       </div>

@@ -16,7 +16,7 @@ import { ThemeProvider } from "./utils/ThemeContext";
 // import About2Function from './components/About2Function'
 import { useThemeContext } from "./utils/ThemeContext";
 import Shimmer from "./components/Shimmer";
-
+import RestaurantDish from "./components/RestaurantDish/RestaurantDish";
 const AppLayout = () => {
   // Access the theme value from context
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
@@ -68,6 +68,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/dish",
+        element: <RestaurantDish />,
       },
       {
         path: "/search-restaurant",
