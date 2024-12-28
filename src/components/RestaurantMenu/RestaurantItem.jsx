@@ -4,7 +4,7 @@ import { addItem, incrementItem, decrementItem } from "../../utils/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useThemeContext } from "../../utils/ThemeContext";
 import "./RestItem.css";
-const RestaurantItem = ({ details, lastDish , rDetails }) => {
+const RestaurantItem = ({ details, lastDish, rDetails }) => {
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
   const { name, isVeg, price, defaultPrice, imageId, description } = details;
   const nonveg =
@@ -24,7 +24,7 @@ const RestaurantItem = ({ details, lastDish , rDetails }) => {
       addItem({
         ...details,
         count: 1,
-        rname:rDetails.name,
+        rname: rDetails.name,
         r_id: rDetails.id,
       })
     );
@@ -81,11 +81,7 @@ const RestaurantItem = ({ details, lastDish , rDetails }) => {
               </div>
             ) : (
               <div className="inc-dec">
-                <img
-                  className="symbol"
-                  onClick={decrement}
-                  src="/minus.jpg"
-                />
+                <img className="symbol" onClick={decrement} src="/minus.jpg" />
                 {dish_count}
                 <img
                   className="symbol"
@@ -102,7 +98,7 @@ const RestaurantItem = ({ details, lastDish , rDetails }) => {
   );
 };
 
-export const RestaurantAccordian = ({ details, lastCategory , rDetails}) => {
+export const RestaurantAccordian = ({ details, lastCategory, rDetails }) => {
   const [show, setShow] = React.useState(false);
   const { theme } = useThemeContext(); // Assuming theme is either 'light' or 'dark'
   const title = details?.title;
@@ -110,7 +106,10 @@ export const RestaurantAccordian = ({ details, lastCategory , rDetails}) => {
 
   return (
     <>
-      <div className="accordian-header" onClick={() => setShow((prev) => !prev)}>
+      <div
+        className="accordian-header"
+        onClick={() => setShow((prev) => !prev)}
+      >
         <div>
           <h4>{`${title} (${dishes.length})`}</h4>
         </div>
@@ -120,6 +119,7 @@ export const RestaurantAccordian = ({ details, lastCategory , rDetails}) => {
         <div>
           {dishes.map((dish, index) => (
             <RestaurantItem
+              key={index}
               details={dish?.card?.info}
               lastDish={dishes.length - 1 == index}
               rDetails={rDetails}
