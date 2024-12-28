@@ -21,7 +21,7 @@ export default function Header() {
       <header className="h-flex-center shadow">
         <div className="mainContainer">
           <div className="header">
-            <NavLink to="/">
+            <NavLink to="/" onClick={toggleHamburger}>
               <div className="logo">
                 <img src="/logo2.png" alt="somelogo" />
                 <h1 htmlFor="title">Food-Point</h1>
@@ -81,21 +81,23 @@ export default function Header() {
               </ul>
             </div>
           </div>
-            <ul className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""} ${theme == "light" ? "background-light" : "background-dark"}`}>
+          <ul
+            className={`expand-nav-items ${hamburgerIsOpen ? "show" : ""} ${
+              theme == "light" ? "background-light" : "background-dark"
+            }`}
+          >
+            <li onClick={toggleHamburger}>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li onClick={toggleHamburger}>
+              <NavLink to="/about">About</NavLink>
+            </li>
 
-              <li onClick={toggleHamburger}>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li onClick={toggleHamburger}>
-                <NavLink to="/about">About</NavLink>
-              </li>
-
-              <ToggleButton
-                hamburgerIsOpen={hamburgerIsOpen}
-                toggleHamburger={toggleHamburger}
-              />
-            </ul>
-
+            <ToggleButton
+              hamburgerIsOpen={hamburgerIsOpen}
+              toggleHamburger={toggleHamburger}
+            />
+          </ul>
         </div>
       </header>
     </>
