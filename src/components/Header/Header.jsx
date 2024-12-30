@@ -21,7 +21,7 @@ export default function Header() {
       <header className="h-flex-center shadow">
         <div className="mainContainer">
           <div className="header">
-            <NavLink to="/" onClick={() => toggleHamburger(false)}>
+            <NavLink to="/" onClick={() => setHamburgerIsOpen(false)}>
               <div className="logo">
                 <img src="/logo2.png" alt="somelogo" />
                 <h1 htmlFor="title">Food-Point</h1>
