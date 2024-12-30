@@ -8,7 +8,7 @@ import { RestaurantListingSkeleton } from "../RestaurantListing/RestaurantListin
 
 const RestaurantDish = () => {
   // Parse query parameters
-  const [restaurantList, setRestaurantList] = useState([]);
+  const [restaurantList, setRestaurantList] = useState(undefined);
   const { latitude, longitude } = useSelector((store) => {
     return store.location;
   });
@@ -45,13 +45,24 @@ const RestaurantDish = () => {
     });
     setRestaurantList(updatedResList);
   }
+  if (restaurantList === undefined) {
+    return (
+      <div className="h-flex-center" style={{ marginTop: "40px" }}>
+        <div className="mainContainer">
+          <div className="restaurantList">
+            <RestaurantListingSkeleton />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (restaurantList.length === 0) {
     return (
       <div className="h-flex-center" style={{ marginTop: "40px" }}>
         <div className="mainContainer">
           <div className="restaurantList">
-            <RestaurantListingSkeleton />
+            <h3>No Restaurants found! Please try another dish...</h3>
           </div>
         </div>
       </div>
